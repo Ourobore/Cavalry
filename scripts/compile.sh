@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 CC="clang++"
-CCFLAGS="-Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address"
+#SANITIZE="-g3 -fsanitize=address"
+CCFLAGS="-Wall -Werror -Wextra -std=c++98 $SANITIZE"
 
 TESTS_INCLUDES="-I. -I.. -I./src -I./src/utils"
 USER_INCLUDES="-I../utils -I../iterator"

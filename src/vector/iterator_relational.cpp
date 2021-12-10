@@ -16,7 +16,7 @@ void relational_iterator(NAMESPACE::vector<TYPE> v, Iterator it)
 
     std::cout << "--- Relational operators (it + n / it -n) ---" << std::endl;
     std::cout << *(it - 35) << " | " << *(itt + 34) << std::endl;
-    std::cout << &*(it - 35) << " | " << &*(itt + 34) << std::endl;
+    // std::cout << &*(it - 35) << " | " << &*(itt + 34) << std::endl; // Pointers are not the same between executions
 
     std::cout << "it == itt: " << (it - 35 == itt + 34) << std::endl;
     std::cout << "it != itt: " << (it - 35 != itt + 34) << std::endl;

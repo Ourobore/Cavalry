@@ -49,9 +49,9 @@ FAIL="\U274C"
 transform_status()
 {
     if [ $1 -eq 0 ]; then
-        echo "${LIGHT_GREEN}${BOLD}${BACK_GREEN}OK!${RESET}"
+        printf "${LIGHT_GREEN}${BOLD}${BACK_GREEN}OK${RESET}"
     else
-        echo "${LIGHT_RED}${BOLD}${BACK_RED}KO!${RESET}"
+        printf "${LIGHT_RED}${BOLD}${BACK_RED}KO${RESET}"
     fi
 
 }
@@ -60,9 +60,9 @@ transform_status()
 print_emoji()
 {
     if [ $1 -eq 0 ]; then
-        echo "${SUCCESS}"
+        printf "${SUCCESS}"
     else
-        echo "${FAIL}"
+        printf "${FAIL}"
     fi
 }
 
@@ -77,7 +77,8 @@ print_test_result()
     local ft_compiled=$(print_emoji $3)
     local result=$(transform_status $4)
 
-    echo -e "$1:\t\tCompilation: STD[$std_compiled](Y) | FT[$ft_compiled](Y)\tResult: [$result]"
+
+    printf "%-33s|       (Y)[%s]   [%s](Y)      |     [%s]\n" "${1}" "${std_compiled}" "$ft_compiled" "${result}"
 }
 
 print_header()
@@ -98,6 +99,12 @@ HEADER=$(cat << "EOF"
 ################################################################################
 EOF
 )
-printf "%s\n" "$HEADER"
+printf "%s\n\n" "$HEADER"
 
+}
+
+print_columns()
+{
+    printf "%s\n" "            Test name            |    [STD] Compilation [FT]    |     Result    "
+    printf "%s\n" "---------------------------------|------------------------------|---------------"
 }

@@ -55,6 +55,8 @@ test_container()
 {
     local test_files_directory="src/$1"
     local test_files=$(ls $test_files_directory | grep ".cpp")
+
+    print_columns
     for file in ${test_files[@]}; do
         run_test $1 $file
     done

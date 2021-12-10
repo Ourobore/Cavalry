@@ -2,12 +2,13 @@
 CC="clang++"
 CCFLAGS="-Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address"
 
-TESTS_INCLUDES="-I. -Isrc/utils"
+TESTS_INCLUDES="-I. -I.. -I./src -I./utils"
 USER_INCLUDES="-I../ -I../utils -I../iterator"
 
 # compile ft/std test_file.cpp exec_name
 compile()
 {
+    echo $(pwd)
     $CC $CCFLAGS -DNAMESPACE=$1 $TESTS_INCLUDES $USER_INCLUDES $2 -o $3 &> logs/$3
     return $?
 }

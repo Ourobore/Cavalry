@@ -1,6 +1,6 @@
 #!/usr/bin/bash
-source option.sh
-source format.sh
+source scripts/option.sh
+source scripts/format.sh
 source compile.sh
 
 CONTAINERS=()

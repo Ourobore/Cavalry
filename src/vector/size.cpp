@@ -1,4 +1,4 @@
-#include "Tests.hpp"
+#include "Cavalry.hpp"
 
 int main()
 {

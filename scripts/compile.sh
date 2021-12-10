@@ -2,9 +2,7 @@
 CC="clang++"
 #SANITIZE="-g3 -fsanitize=address"
 CCFLAGS="-Wall -Werror -Wextra -std=c++98 $SANITIZE"
-
 TESTS_INCLUDES="-I. -I.. -I./src -I./src/utils"
-USER_INCLUDES="-I../utils -I../iterator"
 
 # compile ft/std test_file.cpp exec_name
 compile()
@@ -40,7 +38,7 @@ run_test()
     fi
 
     # Setting up result (diff) values
-    diff logs/$std_test_name logs/$ft_test_name &> logs/$output_diff
+    diff $DIFF_FORMAT logs/$std_test_name logs/$ft_test_name &> logs/$output_diff
     local diff_result=$?
 
     # Cleaning logs if option not set

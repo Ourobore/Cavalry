@@ -5,6 +5,9 @@ source scripts/compile.sh
 
 CONTAINERS=()
 
+DIFF_FORMAT="-u"
+USER_INCLUDES="-I../utils -I../iterator"
+
 # TO-DO: help command and error output
 
 # Check if every container in the argument list can be tested
@@ -43,7 +46,7 @@ main()
 
     # Removing logs and executables if requested
     if [ $# -eq 1 ] && [ $1 = "clean" ]; then
-        rm -rf a.out logs/*
+        rm -rf *.std *.ft logs/*
         echo "Cleaned!"
         exit 0
     fi

@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 source scripts/option.sh
 source scripts/format.sh
-source compile.sh
+source scripts/compile.sh
 
 CONTAINERS=()
 

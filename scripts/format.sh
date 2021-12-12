@@ -78,7 +78,7 @@ print_test_result()
     local result=$(transform_status $4)
 
 
-    printf "%-33s|       (Y)[%s]   [%s](Y)      |     [%s]\n" "${1}" "${std_compiled}" "$ft_compiled" "${result}"
+    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "${1}" "${std_compiled}" "$ft_compiled" "${result}"
 }
 
 print_header()

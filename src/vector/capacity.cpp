@@ -32,7 +32,7 @@ int main()
 
     // ##################################################################################
 
-    std::cout << "--- Resize() lower capacity ---" << std::endl;
+    std::cout << "--- Resize() higher capacity ---" << std::endl;
     v.resize(2000000);
     ft::printContainer(v, true, false);
 

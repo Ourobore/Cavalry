@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:05:09 by lchapren          #+#    #+#             */
-/*   Updated: 2021/12/10 15:10:55 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/10 15:05:10 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@
 #include "print_traits.hpp"
 
 // Containers includes
+#include "map.hpp"
 #include "stack.hpp"
 #include "vector.hpp"
+#include <map>
 #include <stack>
 #include <vector>
 

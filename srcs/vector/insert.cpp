@@ -86,36 +86,54 @@ void insert_fill(NAMESPACE::vector<TYPE>& v)
 
     // Must reserve before, because if reallocation, iterator is no longer valid
     v.reserve(50);
-    {
-        NAMESPACE::vector<TYPE>::iterator it = v.begin() + (v.size() / 2);
-        std::cout << "At position:" << std::endl;
-        std::cout << "Position it = " << *it << std::endl;
-        v.insert(it, 3, TYPE(98));
-        v.insert(it, 2, TYPE(66));
-        ft::printContainer(v);
-    }
+    NAMESPACE::vector<TYPE>::iterator it = v.begin() + (v.size() / 2);
+    std::cout << "At position:" << std::endl;
+    std::cout << "Position it = " << *it << std::endl;
+    v.insert(it, 3, TYPE(98));
+    v.insert(it, 2, TYPE(66));
+    ft::printContainer(v);
+
+    std::cout << std::endl;
+    std::cout << "At position + n:" << std::endl;
+    std::cout << "Position it = " << *it << std::endl;
+    v.insert(it + 5, 3, TYPE(46));
+    v.insert(it + 2, 2, TYPE(65));
+    ft::printContainer(v);
 
     std::cout << std::endl;
 
-    {
-        NAMESPACE::vector<TYPE>::iterator it = v.begin() + (v.size() / 2);
-        std::cout << "At position + n:" << std::endl;
-        std::cout << "Position it = " << *it << std::endl;
-        v.insert(it + 5, 3, TYPE(46));
-        v.insert(it + 2, 2, TYPE(65));
-        ft::printContainer(v);
-    }
+    std::cout << "At position - n:" << std::endl;
+    std::cout << "Position it = " << *it << std::endl;
+    v.insert(it - 5, 3, TYPE(100));
+    v.insert(it - 2, 2, TYPE(200));
+    ft::printContainer(v);
+}
+
+void insert_range(NAMESPACE::vector<TYPE>& v)
+{
+    NAMESPACE::vector<TYPE>::iterator it = v.begin() + (v.size() / 2);
+    std::cout << "--- Insert: range ---" << std::endl;
+    std::cout << "Empty range:" << std::endl;
+    v.insert(v.begin(), v.begin(), v.begin());
+    v.insert(v.end(), v.begin(), v.begin());
+    v.insert(v.end(), v.end(), v.end());
+    v.insert(v.begin(), v.end(), v.end());
+    v.insert(it, v.begin(), v.begin());
+    v.insert(it, v.end(), v.end());
+    ft::printContainer(v);
 
     std::cout << std::endl;
 
-    {
-        NAMESPACE::vector<TYPE>::iterator it = v.begin() + (v.size() / 2);
-        std::cout << "At position - n:" << std::endl;
-        std::cout << "Position it = " << *it << std::endl;
-        v.insert(it - 5, 3, TYPE(100));
-        v.insert(it - 2, 2, TYPE(200));
-        ft::printContainer(v);
-    }
+    it = v.begin() + (v.size() / 2);
+    std::cout << "Insert at begin():" << std::endl;
+    v.insert(v.begin(), v.begin(), v.begin() + 5);
+    // v.insert(v.begin(), v.begin() + 7, v.begin() + 15);
+    // v.insert(v.begin(), v.end() - 3, v.end());
+    // v.insert(v.begin(), v.end() - 13, v.end() - 9);
+    // v.insert(v.begin(), it, it + 3);
+    // v.insert(v.begin(), it - 5, it);
+    // v.insert(v.begin(), it - 4, it + 6);
+    ft::printContainer(v);
 }
 
 int main()
@@ -129,4 +147,10 @@ int main()
     std::cout << std::endl;
 
     insert_fill(v);
+
+    std::cout << std::endl;
+    ft::printSeparator();
+    std::cout << std::endl;
+
+    insert_range(v);
 }

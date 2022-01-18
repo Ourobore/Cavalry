@@ -4,15 +4,18 @@ int main()
 {
     {
         ft::printSeparator();
+        std::cout << std::endl;
         std::cout << "Empty vector (default constructor)" << std::endl;
 
         NAMESPACE::vector<TYPE> v;
         ft::printContainer(v);
+
+        std::cout << std::endl;
         ft::printSeparator();
+        std::cout << std::endl;
     }
     // #########################################################
     {
-        ft::printSeparator();
         std::cout << "Filled vector (fill constructor)" << std::endl;
 
         NAMESPACE::vector<TYPE> v0(21);
@@ -21,7 +24,9 @@ int main()
         NAMESPACE::vector<TYPE> v3(21, 3);
         ft::printContainer(v3);
 
+        std::cout << std::endl;
         ft::printSeparator();
+        std::cout << std::endl;
     }
     // #########################################################
 
@@ -35,7 +40,9 @@ int main()
 
     // #########################################################
     {
+        std::cout << std::endl;
         ft::printSeparator();
+        std::cout << std::endl;
         std::cout << "Range vector (range constructor)" << std::endl;
 
         NAMESPACE::vector<TYPE> v(vec.begin(), vec.end());
@@ -43,11 +50,13 @@ int main()
 
         NAMESPACE::vector<TYPE> vv(vec.begin() + 3, vec.end() - 6);
         ft::printContainer(vv);
+        std::cout << std::endl;
+
         ft::printSeparator();
+        std::cout << std::endl;
     }
     // #########################################################
     {
-        ft::printSeparator();
         std::cout << "Copied vector (copy constructor)" << std::endl;
 
         NAMESPACE::vector<TYPE> v(vec);

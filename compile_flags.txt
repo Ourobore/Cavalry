@@ -2,7 +2,7 @@
 -I../iterator/
 -I../
 -I./
--I./src/
--I./src/utils/
+-I./srcs/
+-I./srcs/utils/
 -std=c++98
 -I/Library/Developer/CommandLineTools/usr/include/c++/v1/

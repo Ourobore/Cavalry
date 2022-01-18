@@ -2,13 +2,9 @@
 
 int main()
 {
-    std::cout << "===== v =====";
+    std::cout << "===== v =====" << std::endl;
     NAMESPACE::vector<TYPE> v;
     v.insert(v.begin(), 2000, TYPE(42));
-    NAMESPACE::vector<TYPE>::const_iterator cit_begin = v.begin();
-    std::cout << *cit_begin << std::endl;
-
-    std::cout << *++cit_begin << std::endl;
 
     ft::printContainer(v);
 
@@ -41,7 +37,7 @@ int main()
     ft::printSeparator();
     std::cout << std::endl;
 
-    std::cout << "===== v_assign =====";
+    std::cout << "===== v_assign =====" << std::endl;
     NAMESPACE::vector<TYPE> v_assign;
     v.assign(v.begin(), v.end());
 

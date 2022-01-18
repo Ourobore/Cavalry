@@ -99,7 +99,7 @@ HEADER=$(cat << "EOF"
 ################################################################################
 EOF
 )
-printf "%s\n\n" "$HEADER"
+printf "${BOLD}${LIGHT_CYAN}%s${RESET}\n\n" "$HEADER"
 
 }
 

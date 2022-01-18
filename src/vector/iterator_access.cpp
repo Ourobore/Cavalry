@@ -37,8 +37,8 @@ int main()
         vfoo.push_back(Foo(i));
     ft::printContainer(vfoo);
 
-    NAMESPACE::vector<Foo>::iterator it = vfoo.begin() + 21;
-    NAMESPACE::vector<Foo>::iterator cit = vfoo.begin() + 21;
+    NAMESPACE::vector<Foo>::iterator       it = vfoo.begin() + 21;
+    NAMESPACE::vector<Foo>::const_iterator cit = vfoo.begin() + 21;
 
     std::cout << std::endl;
     ft::printSeparator();

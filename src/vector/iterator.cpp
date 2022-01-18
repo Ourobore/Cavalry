@@ -28,10 +28,10 @@ void test_iterator(NAMESPACE::vector<TYPE> v, Iterator it)
     std::cout << "Before ->" << std::endl;
     ft::printContainer(v);
 
-    for (it = v.begin(); it != v.end(); ++it)
-        (*it) += 2;
-    for (it = v.begin(); it != v.end(); ++it)
-        (*it) -= 1;
+    // for (it = v.begin(); it != v.end(); ++it)
+    //     (*it) += 2;
+    // for (it = v.begin(); it != v.end(); ++it)
+    //     (*it) -= 1;
 
     std::cout << std::endl;
     std::cout << "After ->" << std::endl;
@@ -57,8 +57,8 @@ int main()
         v.push_back(TYPE(i));
     ft::printContainer(v);
 
-    NAMESPACE::vector<TYPE>::iterator it = v.begin() + 10;
-    NAMESPACE::vector<TYPE>::iterator cit = v.begin() + 10;
+    NAMESPACE::vector<TYPE>::iterator       it = v.begin() + 10;
+    NAMESPACE::vector<TYPE>::const_iterator cit = v.begin() + 10;
 
     std::cout << std::endl;
     ft::printSeparator();

@@ -19,7 +19,7 @@ run_test()
     # Creating distinguishable test names
     local std_test_name="$1.$(echo $2 | cut -d "." -f 1).std"
     local ft_test_name="$1.$(echo $2 | cut -d "." -f 1).ft"
-    local output_diff="diff.$1.$(echo $2 | cut -d "." -f 1)"
+    local output_diff="$1.$(echo $2 | cut -d "." -f 1).diff"
 
     # Compiling tests
     compile std src/$1/$2 $std_test_name

@@ -43,8 +43,8 @@ int main()
         v.push_back(TYPE(i));
     ft::printContainer(v);
 
-    NAMESPACE::vector<TYPE>::iterator it = v.end() - 8;
-    NAMESPACE::vector<TYPE>::iterator cit = v.end() - 8;
+    NAMESPACE::vector<TYPE>::iterator       it = v.end() - 8;
+    NAMESPACE::vector<TYPE>::const_iterator cit = v.end() - 8;
 
     std::cout << std::endl;
     ft::printSeparator();

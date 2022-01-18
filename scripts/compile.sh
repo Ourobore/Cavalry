@@ -2,7 +2,7 @@
 CC="clang++"
 #SANITIZE="-g3 -fsanitize=address"
 CCFLAGS="-Wall -Werror -Wextra -std=c++98 $SANITIZE"
-TESTS_INCLUDES="-I. -I.. -I./src -I./src/utils"
+TESTS_INCLUDES="-I. -I.. -I./srcs -I./srcs/utils"
 
 # compile ft/std test_file.cpp exec_name
 compile()
@@ -22,9 +22,9 @@ run_test()
     local output_diff="$1.$(echo $2 | cut -d "." -f 1).diff"
 
     # Compiling tests
-    compile std src/$1/$2 $std_test_name
+    compile std srcs/$1/$2 $std_test_name
     local std_compiled=$?
-    compile ft src/$1/$2 $ft_test_name
+    compile ft srcs/$1/$2 $ft_test_name
     local ft_compiled=$?
 
     # Setting up compilation values
@@ -53,7 +53,7 @@ run_test()
 # Run all tests relative to the passed container ($1)
 test_container()
 {
-    local test_files_directory="src/$1"
+    local test_files_directory="srcs/$1"
     local test_files=$(ls $test_files_directory | grep ".cpp")
 
     print_columns

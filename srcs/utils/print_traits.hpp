@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:10:20 by lchapren          #+#    #+#             */
-/*   Updated: 2021/12/07 15:20:06 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/18 13:25:30 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 #include <typeinfo>
 
-#include "IteratorTraits.hpp"
+//#include "IteratorTraits.hpp"
 
 namespace ft
 {
@@ -30,11 +30,17 @@ struct iterator_traits;
 template <class Iterator>
 void printTraits(Iterator it)
 {
-    typename NAMESPACE::iterator_traits<Iterator>::difference_type   difference_type;
-    typename NAMESPACE::iterator_traits<Iterator>::value_type        value_type;
-    typename NAMESPACE::iterator_traits<Iterator>::pointer           pointer;
-    typename NAMESPACE::iterator_traits<Iterator>::reference         reference = *it;
-    typename NAMESPACE::iterator_traits<Iterator>::iterator_category category;
+    typename std::iterator_traits<Iterator>::difference_type   difference_type;
+    typename std::iterator_traits<Iterator>::value_type        value_type;
+    typename std::iterator_traits<Iterator>::pointer           pointer;
+    typename std::iterator_traits<Iterator>::reference         reference = *it;
+    typename std::iterator_traits<Iterator>::iterator_category category;
+
+    // typename NAMESPACE::iterator_traits<Iterator>::difference_type   difference_type;
+    // typename NAMESPACE::iterator_traits<Iterator>::value_type        value_type;
+    // typename NAMESPACE::iterator_traits<Iterator>::pointer           pointer;
+    // typename NAMESPACE::iterator_traits<Iterator>::reference         reference = *it;
+    // typename NAMESPACE::iterator_traits<Iterator>::iterator_category category;
 
     size_t width = 20;
 

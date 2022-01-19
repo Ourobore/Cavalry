@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:30:59 by lchapren          #+#    #+#             */
-/*   Updated: 2021/12/09 14:41:59 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/19 16:00:49 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ namespace ft
 {
 
 template <class Container>
-void printContainer(Container c, bool capacity = true, bool content = true)
+void printContainer(Container& c, bool capacity = true, bool content = true)
 {
     ft::printSeparator('=', 1, 45);
 

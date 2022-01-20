@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 13:32:07 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 13:43:38 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:00:57 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main()
     ft::printContainer(v);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
@@ -42,7 +42,7 @@ int main()
     ft::printContainer(v);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
@@ -55,7 +55,7 @@ int main()
         std::cout << "  -> Yep! The vector IS empty!" << std::endl;
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################

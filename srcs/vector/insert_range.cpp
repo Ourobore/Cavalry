@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:38:51 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 12:30:44 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:01:42 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main()
     ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
@@ -68,7 +68,7 @@ int main()
     ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
@@ -96,7 +96,7 @@ int main()
     ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     it = v.begin() + (v.size() / 2);
@@ -127,7 +127,7 @@ int main()
     // ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     it = v.begin() + (v.size() / 2);
@@ -160,7 +160,7 @@ int main()
     // ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     it = v.begin() + (v.size() / 2);
@@ -188,7 +188,7 @@ int main()
     ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
@@ -204,7 +204,7 @@ int main()
     ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################

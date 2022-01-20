@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:37:08 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 12:30:22 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:01:22 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int main()
     ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
+    ft::printSeparator();
+    std::cout << std::endl;
 
     // ##################################################################################
     std::cout << "At end():" << std::endl;
@@ -35,6 +37,8 @@ int main()
     v.insert(v.end(), 2, TYPE(31));
     ft::printContainer(v, CAPACITY);
 
+    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // Must reserve before, because if reallocation, iterator is no longer valid
@@ -48,6 +52,8 @@ int main()
     ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
+    ft::printSeparator();
+    std::cout << std::endl;
 
     // ##################################################################################
     std::cout << "At position + n:" << std::endl;
@@ -56,6 +62,8 @@ int main()
     v.insert(it + 2, 2, TYPE(65));
     ft::printContainer(v, CAPACITY);
 
+    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################

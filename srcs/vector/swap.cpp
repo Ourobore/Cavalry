@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:08:00 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 12:29:57 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:02:48 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
     ft::printContainer(v2, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
@@ -67,7 +67,7 @@ int main()
     ft::printContainer(v2, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
@@ -101,7 +101,7 @@ int main()
     ft::printContainer(v2, CAPACITY);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################

@@ -16,6 +16,17 @@ void access_vector(Vector v)
     std::cout << "v.at(i + n): " << v.at(15 + 7) << std::endl;
     std::cout << "v.at(i - n): " << v.at(15 - 7) << std::endl;
     std::cout << "v.at(i * n): " << v.at(15 * 3) << std::endl;
+    try
+    {
+        std::cout << "v.at(out_of_range): ";
+        TYPE& value = v.at(150);
+        (void)value;
+        std::cout << "Bad! std::out_of_range was not thrown!" << std::endl;
+    }
+    catch (std::out_of_range)
+    {
+        std::cout << "Good! std::out_of_range was thrown and catched!" << std::endl;
+    }
 
     std::cout << std::endl;
 

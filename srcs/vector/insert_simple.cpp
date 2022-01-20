@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:33:37 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 12:30:59 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:02:01 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int main()
     ft::printContainer(v, false);
 
     std::cout << std::endl;
+    ft::printSeparator();
+    std::cout << std::endl;
 
     // ##################################################################################
     std::cout << "At begin() + n:" << std::endl;
@@ -36,6 +38,8 @@ int main()
     ft::printContainer(v, false);
 
     std::cout << std::endl;
+    ft::printSeparator();
+    std::cout << std::endl;
 
     // ##################################################################################
     std::cout << "At end() - n:" << std::endl;
@@ -45,6 +49,8 @@ int main()
     v.insert(v.end() - v.size(), ++value);
     ft::printContainer(v, false);
 
+    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     NAMESPACE::vector<TYPE>::iterator it = v.begin() + (v.size() / 2);
@@ -57,6 +63,8 @@ int main()
     ft::printContainer(v, false);
 
     std::cout << std::endl;
+    ft::printSeparator();
+    std::cout << std::endl;
 
     it = v.begin() + (v.size() / 2);
     // ##################################################################################
@@ -68,6 +76,8 @@ int main()
     v.insert(it + ((v.end() - v.begin()) / 3), ++value);
     ft::printContainer(v, false);
 
+    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     it = v.begin() + (v.size() / 2);

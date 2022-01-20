@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 13:53:55 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 14:09:30 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:59:12 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
     ft::printContainer(v);
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
@@ -38,7 +38,7 @@ int main()
     std::cout << "It compiled so you are good^^ (for now hehe)" << std::endl;
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
@@ -51,7 +51,7 @@ int main()
         std::cout << "  -> Hum, they should be the same I think" << std::endl;
 
     std::cout << std::endl;
-    std::cout << std::endl;
+    ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################

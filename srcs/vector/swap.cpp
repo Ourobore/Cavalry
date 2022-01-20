@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:08:00 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 12:27:53 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:29:57 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
+    // ##################################################################################
     std::cout << "### Same size, same capacity: ###" << std::endl;
     std::cout << "Non member overload:" << std::endl;
     NAMESPACE::swap(v1, v2);
@@ -69,6 +70,7 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
+    // ##################################################################################
     std::cout << "### Different size, same capacity: ###" << std::endl;
     v1.push_back(v1.back() + 1);
     v1.push_back(v1.back() + 1);
@@ -102,6 +104,7 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
+    // ##################################################################################
     std::cout << "### Same size, different capacity: ###" << std::endl;
     v1.push_back(v1.back() + 1);
     v1.push_back(v1.back() + 1);

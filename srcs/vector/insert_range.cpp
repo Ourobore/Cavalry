@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:38:51 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 11:52:14 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:30:44 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int main()
 
     NAMESPACE::vector<TYPE>::iterator it = v.begin() + (v.size() / 2);
     std::cout << "--- Insert: range ---" << std::endl;
+    // ##################################################################################
     std::cout << "Empty range:" << std::endl;
     v.insert(v.begin(), v.begin(), v.begin());
     v.insert(v.end(), v.begin(), v.begin());
@@ -42,6 +43,7 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
+    // ##################################################################################
     std::cout << "Insert at begin():" << std::endl;
     v.insert(v.begin(), v.begin(), v.begin() + 3);
     ft::printContainer(v, CAPACITY);
@@ -69,6 +71,7 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
+    // ##################################################################################
     std::cout << "Insert at end():" << std::endl;
     v.insert(v.end(), v.begin(), v.begin() + 3);
     ft::printContainer(v, CAPACITY);
@@ -97,6 +100,7 @@ int main()
     std::cout << std::endl;
 
     it = v.begin() + (v.size() / 2);
+    // ##################################################################################
     std::cout << "Insert at position():" << std::endl;
     std::cout << "Position it = " << *it << std::endl;
     v.insert(it, v.begin(), v.begin() + 3);
@@ -127,6 +131,7 @@ int main()
     std::cout << std::endl;
 
     it = v.begin() + (v.size() / 2);
+    // ##################################################################################
     std::cout << "Insert at position + n" << std::endl;
     std::cout << "Position it = " << *it << std::endl;
     v.insert(it + 10, v.begin(), v.begin() + 5);
@@ -159,6 +164,7 @@ int main()
     std::cout << std::endl;
 
     it = v.begin() + (v.size() / 2);
+    // ##################################################################################
     std::cout << "Insert at position - n" << std::endl;
     std::cout << "Position it = " << *it << std::endl;
     v.insert(it - 10, v.begin(), v.begin() + 5);
@@ -185,6 +191,7 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
+    // ##################################################################################
     std::cout << "Insert full range" << std::endl;
     v.insert(v.begin(), v.begin(), v.end());
     ft::printContainer(v, CAPACITY);
@@ -200,6 +207,7 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
+    // ##################################################################################
     std::cout << "Insert InputIterator" << std::endl;
     std::list<TYPE> l;
     for (size_t i = 30; i != 40; ++i)

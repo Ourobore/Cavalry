@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:37:08 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 11:54:48 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:30:22 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main()
     NAMESPACE::vector<TYPE> v;
 
     std::cout << "--- Insert: fill element ---" << std::endl;
+    // ##################################################################################
     std::cout << "At begin():" << std::endl;
     v.insert(v.begin(), 3, TYPE(42));
     v.insert(v.begin(), 2, TYPE(21));
@@ -28,6 +29,7 @@ int main()
 
     std::cout << std::endl;
 
+    // ##################################################################################
     std::cout << "At end():" << std::endl;
     v.insert(v.end(), 3, TYPE(33));
     v.insert(v.end(), 2, TYPE(31));
@@ -38,6 +40,7 @@ int main()
     // Must reserve before, because if reallocation, iterator is no longer valid
     v.reserve(50);
     NAMESPACE::vector<TYPE>::iterator it = v.begin() + (v.size() / 2);
+    // ##################################################################################
     std::cout << "At position:" << std::endl;
     std::cout << "Position it = " << *it << std::endl;
     v.insert(it, 3, TYPE(98));
@@ -45,6 +48,8 @@ int main()
     ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
+
+    // ##################################################################################
     std::cout << "At position + n:" << std::endl;
     std::cout << "Position it = " << *it << std::endl;
     v.insert(it + 5, 3, TYPE(46));
@@ -53,6 +58,7 @@ int main()
 
     std::cout << std::endl;
 
+    // ##################################################################################
     std::cout << "At position - n:" << std::endl;
     std::cout << "Position it = " << *it << std::endl;
     v.insert(it - 5, 3, TYPE(100));

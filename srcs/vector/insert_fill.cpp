@@ -6,11 +6,15 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:37:08 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/19 16:37:42 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 11:54:48 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cavalry.hpp"
+
+#ifndef CAPACITY
+#define CAPACITY true
+#endif
 
 int main()
 {
@@ -20,14 +24,14 @@ int main()
     std::cout << "At begin():" << std::endl;
     v.insert(v.begin(), 3, TYPE(42));
     v.insert(v.begin(), 2, TYPE(21));
-    ft::printContainer(v, false);
+    ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
 
     std::cout << "At end():" << std::endl;
     v.insert(v.end(), 3, TYPE(33));
     v.insert(v.end(), 2, TYPE(31));
-    ft::printContainer(v, false);
+    ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
 
@@ -38,14 +42,14 @@ int main()
     std::cout << "Position it = " << *it << std::endl;
     v.insert(it, 3, TYPE(98));
     v.insert(it, 2, TYPE(66));
-    ft::printContainer(v, false);
+    ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
     std::cout << "At position + n:" << std::endl;
     std::cout << "Position it = " << *it << std::endl;
     v.insert(it + 5, 3, TYPE(46));
     v.insert(it + 2, 2, TYPE(65));
-    ft::printContainer(v, false);
+    ft::printContainer(v, CAPACITY);
 
     std::cout << std::endl;
 
@@ -53,5 +57,5 @@ int main()
     std::cout << "Position it = " << *it << std::endl;
     v.insert(it - 5, 3, TYPE(100));
     v.insert(it - 2, 2, TYPE(200));
-    ft::printContainer(v, false);
+    ft::printContainer(v, CAPACITY);
 }

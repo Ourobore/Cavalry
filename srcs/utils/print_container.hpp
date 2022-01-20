@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:30:59 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/19 16:00:49 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 11:08:02 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void printContainer(Container& c, bool capacity = true, bool content = true)
         std::cout << "[ ";
         for (typename Container::size_type i = 0; i < c.size(); ++i)
         {
+            // std::cout << "[" << i << "]: ";
             std::cout << c[i];
             if (i < c.size() - 1)
                 std::cout << ", ";

@@ -3,6 +3,8 @@
 # Options variables: 0 -> ON, 1 -> OFF
 HELP=1
 NO_CLEAN=1
+LEAKS=1
+TIME=1
 
 parse_options()
 {
@@ -15,6 +17,10 @@ parse_options()
                 ;;
             --no-clean)
                 NO_CLEAN=0
+                continue
+                ;;
+            --leaks)
+                LEAKS=0
                 continue
                 ;;
             *) CONTAINERS+=("$arg")

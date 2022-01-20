@@ -81,6 +81,38 @@ print_test_result()
     printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "${1}" "${std_compiled}" "$ft_compiled" "${result}"
 }
 
+# Print test status and leaks:
+#   $1 -> test path
+#   $2 -> std compilation
+#   $3 -> ft compilation
+#   $3 -> test result
+#   $4 -> test leaks
+print_test_leaks()
+{
+    local std_compiled=$(print_emoji $2)
+    local ft_compiled=$(print_emoji $3)
+    local result=$(transform_status $4)
+
+
+    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "${1}" "${std_compiled}" "$ft_compiled" "${result}"
+}
+
+# Print test status and execution time:
+#   $1 -> test path
+#   $2 -> std compilation
+#   $3 -> ft compilation
+#   $3 -> test result
+#   $4 -> test time
+print_test_time()
+{
+    local std_compiled=$(print_emoji $2)
+    local ft_compiled=$(print_emoji $3)
+    local result=$(transform_status $4)
+
+
+    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "${1}" "${std_compiled}" "$ft_compiled" "${result}"
+}
+
 print_header()
 {
 

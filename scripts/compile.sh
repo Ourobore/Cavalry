@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 CC="clang++"
-#SANITIZE="-g3 -fsanitize=address"
-CCFLAGS="-Wall -Werror -Wextra -std=c++98 $SANITIZE"
+#SANITIZE="-fsanitize=address"
+CCFLAGS="-Wall -Werror -Wextra -g3 -std=c++98 $SANITIZE"
 TESTS_INCLUDES="-I. -I.. -I./srcs -I./srcs/utils"
 
 # compile ft/std test_file.cpp exec_name
@@ -9,6 +9,14 @@ compile()
 {
     $CC $CCFLAGS -DNAMESPACE=$1 $TESTS_INCLUDES $USER_INCLUDES $2 -o $3 &> logs/$3
     return $?
+}
+
+# Launch test via valgrind to check leaks
+#   $1 -> test_name
+#   $2 -> log_file
+launch_valgrind()
+{
+    valgrind --quiet --leak-check=full --error-exitcode=42 --log-file="/dev/null" $1 &> $2
 }
 
 # Run test corresponding to function arguments: 
@@ -30,13 +38,19 @@ run_test()
     # Setting up compilation values
     local std_error=$std_compiled
     local ft_error=$ft_compiled
+    local ft_leaks=0;
     if [ $std_compiled -eq 0 ]; then
         ./$std_test_name $> logs/$std_test_name
         std_error=$?
         rm -rf $std_test_name
     fi
     if [ $ft_compiled -eq 0 ]; then
-        ./$ft_test_name $> logs/$ft_test_name
+        if [ $LEAKS -eq 0 ]; then
+            launch_valgrind ./$ft_test_name logs/$ft_test_name
+            ft_leaks=$?
+        else
+            ./$ft_test_name $> logs/$ft_test_name
+        fi
         ft_error=$?
         rm -rf $ft_test_name
     fi
@@ -50,7 +64,7 @@ run_test()
         rm -rf logs/$std_test_name logs/$ft_test_name logs/$output_diff
     fi
 
-    # Printing test result
+    # Computing test result
     local test_result=1
     if [ $diff_result -eq 0 ] && [ $std_compiled -eq 0 ] && [ $ft_compiled -eq 0 ] \
         && [ $std_error = 0 ] && [ $ft_error = 0 ]; then
@@ -58,7 +72,15 @@ run_test()
     else
         test_result=1
     fi
-    print_test_result "$1/$2" $std_compiled $ft_compiled $test_result
+
+    #Printing test results
+    if [ $LEAKS -eq 0 ]; then
+        print_test_leaks "$1/$2" $std_compiled $ft_compiled $test_result $ft_leaks
+    elif [ $TIME -eq 0 ]; then
+        print_test_time "$1/$2" $std_compiled $ft_compiled $test_result
+    else
+        print_test_result "$1/$2" $std_compiled $ft_compiled $test_result
+    fi
 }
 
 # Run all tests relative to the passed container ($1)

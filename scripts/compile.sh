@@ -28,12 +28,16 @@ run_test()
     local ft_compiled=$?
 
     # Setting up compilation values
+    local std_error=$std_compiled
+    local ft_error=$ft_compiled
     if [ $std_compiled -eq 0 ]; then
         ./$std_test_name $> logs/$std_test_name
+        std_error=$?
         rm -rf $std_test_name
     fi
     if [ $ft_compiled -eq 0 ]; then
         ./$ft_test_name $> logs/$ft_test_name
+        ft_error=$?
         rm -rf $ft_test_name
     fi
 
@@ -47,7 +51,14 @@ run_test()
     fi
 
     # Printing test result
-    print_test_result "$1/$2" $std_compiled $ft_compiled $diff_result
+    local test_result=1
+    if [ $diff_result -eq 0 ] && [ $std_compiled -eq 0 ] && [ $ft_compiled -eq 0 ] \
+        && [ $std_error = 0 ] && [ $ft_error = 0 ]; then
+        test_result=0
+    else
+        test_result=1
+    fi
+    print_test_result "$1/$2" $std_compiled $ft_compiled $test_result
 }
 
 # Run all tests relative to the passed container ($1)

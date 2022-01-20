@@ -49,9 +49,9 @@ FAIL="\U274C"
 transform_status()
 {
     if [ $1 -eq 0 ]; then
-        printf "${LIGHT_GREEN}${BOLD}${BACK_GREEN}OK${RESET}"
+        printf "${LIGHT_GRAY}${BOLD}${BACK_GREEN}OK${RESET}"
     else
-        printf "${LIGHT_RED}${BOLD}${BACK_RED}KO${RESET}"
+        printf "${LIGHT_GRAY}${BOLD}${BACK_RED}KO${RESET}"
     fi
 
 }
@@ -94,17 +94,24 @@ HEADER=$(cat << "EOF"
 #                      \_____\__,_| \_/ \__,_|_|_|   \__, |                    #
 #                                                     __/ |                    #
 #                                                    |___/                     #
-#                            A ft_containers tester              by lchapren   #
+#                         A ft_containers testing tool           by lchapren   #
 #                                                                              #
 ################################################################################
 EOF
 )
+
 printf "${BOLD}${LIGHT_CYAN}%s${RESET}\n\n" "$HEADER"
 
 }
 
 print_columns()
 {
-    printf "%s\n" "            Test name            |    [STD] Compilation [FT]    |     Result    "
-    printf "%s\n" "---------------------------------|------------------------------|---------------"
+
+COLUMNS=$(cat << "EOF"
+            Test name            |    [STD] Compilation [FT]    |     Result    
+---------------------------------|------------------------------|---------------
+EOF
+)
+
+printf "%s\n" "$COLUMNS"
 }

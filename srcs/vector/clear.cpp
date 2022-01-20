@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 13:23:20 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 13:28:53 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 13:33:19 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main()
     std::cout << "Before clear ->" << std::endl;
     ft::printContainer(v);
     v.clear();
+    v.clear(); // To see if that is not a problem
     std::cout << "After clear ->" << std::endl;
     ft::printContainer(v);
 
@@ -41,6 +42,7 @@ int main()
     std::cout << "Before clear ->" << std::endl;
     ft::printContainer(v);
     NAMESPACE::vector<TYPE>().swap(v);
+    NAMESPACE::vector<TYPE>().swap(v); // To see if that is not a problem
     std::cout << "After clear ->" << std::endl;
     ft::printContainer(v);
 }

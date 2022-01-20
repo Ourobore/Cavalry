@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:05:09 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/10 15:05:10 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:27:41 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 
 #ifndef TYPE
 #define TYPE int
+#endif
+
+#ifndef CAPACITY
+#define CAPACITY true
 #endif
 
 #include <iostream>

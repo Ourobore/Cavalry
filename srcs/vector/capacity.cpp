@@ -45,7 +45,7 @@ int main()
     std::cout << "--- Resize() vector.max_size() - 1 ---" << std::endl;
     try
     {
-        v.resize(v.max_size() - 1);
+        v.resize(v.get_allocator().max_size() - 1);
         ft::printContainer(v, true, false);
         std::cout << "Not Thrown: Throws std::bad_alloc if allocator failed to allocate" << std::endl;
     }
@@ -85,7 +85,7 @@ int main()
     {
         v.resize(v.max_size() + 1);
         ft::printContainer(v, true, false);
-        std::cout << "Bad! Should throw!" << std::endl;
+        std::cout << "Bad! Should throw at least a std::length_error!" << std::endl;
     }
     catch (std::bad_alloc)
     {

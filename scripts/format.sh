@@ -44,6 +44,9 @@ BACK_WHITE="\e[107m"
 SUCCESS="\U2705"
 FAIL="\U274C"
 
+LEAK="\U1F30A"
+NO_LEAK="\U1F525"
+
 # Transform function return status code to string:
 #   $1 -> status code
 transform_status()
@@ -56,8 +59,8 @@ transform_status()
 
 }
 
-# Print 'Succes' emoji if $1 ==0, else print 'Fail' emoji
-print_emoji()
+# Print 'Succes' emoji if $1 == 0, else print 'Fail' emoji
+print_emoji_result()
 {
     if [ $1 -eq 0 ]; then
         printf "${SUCCESS}"
@@ -66,35 +69,46 @@ print_emoji()
     fi
 }
 
+# Print 'No Leak' emoji if $1 == 0, else print 'Leak' emoji
+print_emoji_leak()
+{
+    if [ $1 -eq 0 ]; then
+        printf "${NO_LEAK}"
+    else
+        printf "${LEAK}"
+    fi
+}
+
 # Print test status:
 #   $1 -> test path
 #   $2 -> std compilation
 #   $3 -> ft compilation
-#   $3 -> test result
+#   $4 -> test result
 print_test_result()
 {
-    local std_compiled=$(print_emoji $2)
-    local ft_compiled=$(print_emoji $3)
+    local std_compiled=$(print_emoji_result $2)
+    local ft_compiled=$(print_emoji_result $3)
     local result=$(transform_status $4)
 
 
-    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "${1}" "${std_compiled}" "$ft_compiled" "${result}"
+    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "$1" "$std_compiled" "$ft_compiled" "$result"
 }
 
 # Print test status and leaks:
 #   $1 -> test path
 #   $2 -> std compilation
 #   $3 -> ft compilation
-#   $3 -> test result
-#   $4 -> test leaks
+#   $4 -> test result
+#   $5 -> ft test leaks
 print_test_leaks()
 {
-    local std_compiled=$(print_emoji $2)
-    local ft_compiled=$(print_emoji $3)
+    local std_compiled=$(print_emoji_result $2)
+    local ft_compiled=$(print_emoji_result $3)
     local result=$(transform_status $4)
+    local result_leaks=$(print_emoji_leak $5)
 
 
-    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "${1}" "${std_compiled}" "$ft_compiled" "${result}"
+    printf "%-33s|       (Y)[%s]   [%s](Y)      |   [%s]  [%s] \n" "$1" "$std_compiled" "$ft_compiled" "$result" "$result_leaks"
 }
 
 # Print test status and execution time:
@@ -102,15 +116,16 @@ print_test_leaks()
 #   $2 -> std compilation
 #   $3 -> ft compilation
 #   $3 -> test result
-#   $4 -> test time
+#   $4 -> std test time
+#   $5 -> ft test time
 print_test_time()
 {
-    local std_compiled=$(print_emoji $2)
-    local ft_compiled=$(print_emoji $3)
+    local std_compiled=$(print_emoji_result $2)
+    local ft_compiled=$(print_emoji_result $3)
     local result=$(transform_status $4)
 
 
-    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "${1}" "${std_compiled}" "$ft_compiled" "${result}"
+    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "$1" "$std_compiled" "$ft_compiled" "$result"
 }
 
 print_header()

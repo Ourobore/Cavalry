@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 CC="clang++"
 #SANITIZE="-fsanitize=address"
+VALGRIND_OPTIONS="--quiet --leak-check=full --error-exitcode=42 --log-file=/dev/null"
 CCFLAGS="-Wall -Werror -Wextra -g3 -std=c++98 $SANITIZE"
 TESTS_INCLUDES="-I. -I.. -I./srcs -I./srcs/utils"
 
@@ -11,47 +12,48 @@ compile()
     return $?
 }
 
-# Launch test via valgrind to check leaks
-#   $1 -> test_name
-#   $2 -> log_file
-launch_valgrind()
-{
-    valgrind --quiet --leak-check=full --error-exitcode=42 --log-file="/dev/null" $1 &> $2
-}
-
-# Run test corresponding to function arguments: 
+# Run test corresponding to function arguments and options: 
 #   $1 -> container
 #   $2 -> test_file
-run_test()
+run_test_wrapper()
 {
     # Creating distinguishable test names
-    local std_test_name="$1.$(echo $2 | cut -d "." -f 1).std"
-    local ft_test_name="$1.$(echo $2 | cut -d "." -f 1).ft"
-    local output_diff="$1.$(echo $2 | cut -d "." -f 1).diff"
+    std_test_name="$1.$(echo $2 | cut -d "." -f 1).std"
+    ft_test_name="$1.$(echo $2 | cut -d "." -f 1).ft"
+    output_diff="$1.$(echo $2 | cut -d "." -f 1).diff"
 
     # Compiling tests
     compile std srcs/$1/$2 $std_test_name
-    local std_compiled=$?
+    std_compiled=$?
     compile ft srcs/$1/$2 $ft_test_name
-    local ft_compiled=$?
+    ft_compiled=$?
 
-    # Setting up compilation values
-    local std_error=$std_compiled
-    local ft_error=$ft_compiled
-    local ft_leaks=0;
+    std_error=$std_compiled
+    ft_error=$ft_compiled
+    # Setting up STD tests return values for basic, leaks and time modes
     if [ $std_compiled -eq 0 ]; then
-        ./$std_test_name $> logs/$std_test_name
-        std_error=$?
+        if [ $TIME -eq 0 ]; then
+            std_time=/usr/bin/time -f "%e" ./$std_test_name
+            std_error=$?
+        else
+            ./$std_test_name &> logs/$std_test_name
+            std_error=$?
+        fi
         rm -rf $std_test_name
     fi
+
+    # Setting up FT tests return values for basic, leaks and time modes
     if [ $ft_compiled -eq 0 ]; then
         if [ $LEAKS -eq 0 ]; then
-            launch_valgrind ./$ft_test_name logs/$ft_test_name
-            ft_leaks=$?
+            valgrind $VALGRIND_OPTIONS ./$ft_test_name &> logs/$ft_test_name
+            ft_error=$?
+        elif [ $TIME -eq 0 ]; then
+            ft_time=/usr/bin/time -f "%e" ./$ft_test_name
+            ft_error=$?
         else
-            ./$ft_test_name $> logs/$ft_test_name
+            ./$ft_test_name &> logs/$ft_test_name
+            ft_error=$?
         fi
-        ft_error=$?
         rm -rf $ft_test_name
     fi
 
@@ -72,12 +74,12 @@ run_test()
     else
         test_result=1
     fi
-
+    
     #Printing test results
     if [ $LEAKS -eq 0 ]; then
-        print_test_leaks "$1/$2" $std_compiled $ft_compiled $test_result $ft_leaks
+        print_test_leaks "$1/$2" $std_compiled $ft_compiled $test_result $ft_error
     elif [ $TIME -eq 0 ]; then
-        print_test_time "$1/$2" $std_compiled $ft_compiled $test_result
+        print_test_time "$1/$2" $std_compiled $ft_compiled $test_result $std_time $ft_time
     else
         print_test_result "$1/$2" $std_compiled $ft_compiled $test_result
     fi
@@ -91,7 +93,7 @@ test_container()
 
     print_columns
     for file in ${test_files[@]}; do
-        run_test $1 $file
+        run_test_wrapper $1 $file
     done
 }
 

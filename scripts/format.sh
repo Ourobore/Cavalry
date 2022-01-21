@@ -79,19 +79,14 @@ print_emoji_leak()
     fi
 }
 
-# Print test status:
-#   $1 -> test path
-#   $2 -> std compilation
-#   $3 -> ft compilation
-#   $4 -> test result
-print_test_result()
+# Call bc and return value corresponding to operators and operands
+#   $1 -> first operand
+#   $2 -> second operand
+#   $3 -> operator
+call_bc()
 {
-    local std_compiled=$(print_emoji_result $2)
-    local ft_compiled=$(print_emoji_result $3)
-    local result=$(transform_status $4)
-
-
-    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "$1" "$std_compiled" "$ft_compiled" "$result"
+    # Running it in quiet mode, and discarding possible errors like division by 0
+    printf "%s" "$(echo "scale=2; $1 $3 $2" | bc -q 2> /dev/null)"
 }
 
 # Print test status and leaks:
@@ -107,7 +102,6 @@ print_test_leaks()
     local result=$(transform_status $4)
     local result_leaks=$(print_emoji_leak $5)
 
-
     printf "%-33s|       (Y)[%s]   [%s](Y)      |   [%s]  [%s] \n" "$1" "$std_compiled" "$ft_compiled" "$result" "$result_leaks"
 }
 
@@ -119,6 +113,50 @@ print_test_leaks()
 #   $4 -> std test time
 #   $5 -> ft test time
 print_test_time()
+{
+    local std_compiled=$(print_emoji_result $2)
+    local ft_compiled=$(print_emoji_result $3)
+    local result=$(call_bc $ft_time $std_time "/")
+    
+    # If compilation error, can't compare times
+    if [ $2 -eq 1 ]; then
+        if [ $3 -eq 1 ]; then
+            printf "%-33s|        [${BOLD}${RED}%s${RESET}]  [${BOLD}${RED}%s${RESET}]        |    [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "COMP" "COMP" "ERROR"
+        else
+            printf "%-33s|        [${BOLD}${RED}%s${RESET}]  [${BOLD}${GREEN}%s${RESET}]        |   [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "COMP" "$ft_time" "ERROR"
+        fi
+    elif [ $3 -eq 1 ]; then
+            printf "%-33s|        [${BOLD}${GREEN}%s${RESET}]  [${BOLD}${RED}%s${RESET}]        |   [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "$std_time" "COMP" "ERROR"
+    else
+
+    # If dividing by zero, time ratio is infinity
+    if [ -z $result ]; then
+        local sum_time=$(call_bc $std_time $ft_time "+")
+        # If ft_time is less than 0.20 seconds, comparing to 0.00 from std_time
+        if [ $(call_bc $sum_time "0.20" "<=") -eq 1 ]; then
+            printf "%-33s|        [${BOLD}${GREEN}%s${RESET}]  [${BOLD}${GREEN}%s${RESET}]        |   [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "$std_time" "$ft_time" "INFINITY"
+        else
+            printf "%-33s|        [${BOLD}${GREEN}%s${RESET}]  [${BOLD}${RED}%s${RESET}]        |   [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "$std_time" "$ft_time" "INFINITY"
+        fi
+
+    # If time ratio is within the x20 time limit
+    elif [ $(call_bc $result "20" "<=") -eq 1 ]; then
+        printf "%-33s|        [${BOLD}${GREEN}%s${RESET}]  [${BOLD}${GREEN}%s${RESET}]        |    [${BOLD}${GREEN}%s${RESET}]\n" "$1" "$std_time" "$ft_time" "x$result"
+    
+    # If time ratio is not within the x20 time limit
+    else
+        printf "%-33s|        [${BOLD}${GREEN}%s${RESET}]  [${BOLD}${RED}%s${RESET}]        |    [${BOLD}${RED}%s${RESET}]\n" "$1" "$std_time" "$ft_time" "x$result"
+    fi
+
+    fi
+}
+
+# Print test status:
+#   $1 -> test path
+#   $2 -> std compilation
+#   $3 -> ft compilation
+#   $4 -> test result
+print_test_result()
 {
     local std_compiled=$(print_emoji_result $2)
     local ft_compiled=$(print_emoji_result $3)
@@ -151,7 +189,31 @@ printf "${BOLD}${LIGHT_CYAN}%s${RESET}\n\n" "$HEADER"
 
 }
 
-print_columns()
+print_columns_leaks()
+{
+
+COLUMNS=$(cat << "EOF"
+            Test name            |    [STD] Compilation [FT]    |  Result+Leaks
+---------------------------------|------------------------------|---------------
+EOF
+)
+
+printf "%s\n" "$COLUMNS"
+}
+
+print_columns_time()
+{
+
+COLUMNS=$(cat << "EOF"
+            Test name            |   [STD] Time Elapsed [FT]    |   Time Ratio  
+---------------------------------|------------------------------|---------------
+EOF
+)
+
+printf "%s\n" "$COLUMNS"
+}
+
+print_columns_result()
 {
 
 COLUMNS=$(cat << "EOF"

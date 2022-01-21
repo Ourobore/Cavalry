@@ -23,6 +23,10 @@ parse_options()
                 LEAKS=0
                 continue
                 ;;
+            --time)
+                TIME=0
+                continue
+                ;;
             *) CONTAINERS+=("$arg")
             ;;
         esac

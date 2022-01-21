@@ -33,7 +33,7 @@ run_test_wrapper()
     # Setting up STD tests return values for basic, leaks and time modes
     if [ $std_compiled -eq 0 ]; then
         if [ $TIME -eq 0 ]; then
-            std_time=/usr/bin/time -f "%e" ./$std_test_name
+            std_time=$(/usr/bin/time -f "%e" ./$std_test_name 2>&1 > logs/$std_test_name)
             std_error=$?
         else
             ./$std_test_name &> logs/$std_test_name
@@ -48,7 +48,7 @@ run_test_wrapper()
             valgrind $VALGRIND_OPTIONS ./$ft_test_name &> logs/$ft_test_name
             ft_error=$?
         elif [ $TIME -eq 0 ]; then
-            ft_time=/usr/bin/time -f "%e" ./$ft_test_name
+            ft_time=$(/usr/bin/time -f "%e" ./$ft_test_name 2>&1 > logs/$ft_test_name)
             ft_error=$?
         else
             ./$ft_test_name &> logs/$ft_test_name
@@ -91,7 +91,14 @@ test_container()
     local test_files_directory="srcs/$1"
     local test_files=$(ls $test_files_directory | grep ".cpp")
 
-    print_columns
+    if [ $LEAKS -eq 0 ]; then
+        print_columns_leaks
+    elif [ $TIME -eq 0 ]; then
+        print_columns_time
+    else
+        print_columns
+    fi
+    
     for file in ${test_files[@]}; do
         run_test_wrapper $1 $file
     done

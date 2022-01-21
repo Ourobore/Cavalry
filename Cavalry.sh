@@ -39,6 +39,12 @@ main()
         CONTAINERS=(vector stack map set)
     fi
 
+    # Verifying both --leaks and --time options are not activated at the same time
+    if [ $LEAKS -eq 0 ] && [ $TIME -eq 0 ]; then
+        echo "Can't activate both --leaks and --time options at the same time. Deactivate one"
+        exit 0
+    fi
+
     # Printing help if requested
     if [ $HELP -eq 0 ]; then
         print_help

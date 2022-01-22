@@ -1,5 +1,9 @@
 #include "Cavalry.hpp"
 
+#ifndef LEAKS
+#define LEAKS 1
+#endif
+
 int main()
 {
     NAMESPACE::vector<TYPE> v;
@@ -42,10 +46,14 @@ int main()
 
     // ##################################################################################
 
+// resize() / reserve() at max_size() with valgrind will crash, so need to deactivate following code
+// Error message: new/new[] failed and should throw an exception, but Valgrind cannot throw exceptions and so is aborting instead.  Sorry.
+#if LEAKS == 1
+
     std::cout << "--- Resize() vector.max_size() - 1 ---" << std::endl;
     try
     {
-        v.resize(v.get_allocator().max_size() - 1);
+        v.resize(v.max_size() - 1);
         ft::printContainer(v, true, false);
         std::cout << "Not Thrown: Throws std::bad_alloc if allocator failed to allocate" << std::endl;
     }
@@ -97,4 +105,6 @@ int main()
         ft::printContainer(v, true, false);
         std::cout << "Good! It throws std::length_error!" << std::endl;
     }
+
+#endif
 }

@@ -3,6 +3,7 @@
 # Options variables: 0 -> ON, 1 -> OFF
 HELP=1
 NO_CLEAN=1
+NO_CAPACITY=1
 LEAKS=1
 TIME=1
 
@@ -17,6 +18,10 @@ parse_options()
                 ;;
             --no-clean)
                 NO_CLEAN=0
+                continue
+                ;;
+            --no-capacity)
+                NO_CAPACITY=0
                 continue
                 ;;
             --leaks)

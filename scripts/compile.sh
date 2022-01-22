@@ -5,10 +5,10 @@ VALGRIND_OPTIONS="--quiet --leak-check=full --error-exitcode=42 --log-file=/dev/
 CCFLAGS="-Wall -Werror -Wextra -g3 -std=c++98 $SANITIZE"
 TESTS_INCLUDES="-I. -I.. -I./srcs -I./srcs/utils"
 
-# compile ft/std test_file.cpp exec_name
+# compile ft/std test_file.cpp container exec_name
 compile()
 {
-    $CC $CCFLAGS -DNAMESPACE=$1 $TESTS_INCLUDES $USER_INCLUDES $2 -o $3 &> logs/$3
+    $CC $CCFLAGS -DNAMESPACE=$1 $TESTS_INCLUDES $USER_INCLUDES $2 -o $4 &> logs/$3/$4
     return $?
 }
 
@@ -21,11 +21,12 @@ run_test_wrapper()
     std_test_name="$1.$(echo $2 | cut -d "." -f 1).std"
     ft_test_name="$1.$(echo $2 | cut -d "." -f 1).ft"
     output_diff="$1.$(echo $2 | cut -d "." -f 1).diff"
+    mkdir -p ./logs/$1
 
     # Compiling tests
-    compile std srcs/$1/$2 $std_test_name
+    compile std srcs/$1/$2 $1 $std_test_name
     std_compiled=$?
-    compile ft srcs/$1/$2 $ft_test_name
+    compile ft srcs/$1/$2 $1 $ft_test_name
     ft_compiled=$?
 
     std_error=$std_compiled
@@ -33,10 +34,10 @@ run_test_wrapper()
     # Setting up STD tests return values for basic, leaks and time modes
     if [ $std_compiled -eq 0 ]; then
         if [ $TIME -eq 0 ]; then
-            std_time=$(/usr/bin/time -f "%e" ./$std_test_name 2>&1 > logs/$std_test_name)
+            std_time=$(/usr/bin/time -f "%e" ./$std_test_name 2>&1 > logs/$1/$std_test_name)
             std_error=$?
         else
-            ./$std_test_name &> logs/$std_test_name
+            ./$std_test_name &> logs/$1/$std_test_name
             std_error=$?
         fi
         rm -rf $std_test_name
@@ -45,25 +46,25 @@ run_test_wrapper()
     # Setting up FT tests return values for basic, leaks and time modes
     if [ $ft_compiled -eq 0 ]; then
         if [ $LEAKS -eq 0 ]; then
-            valgrind $VALGRIND_OPTIONS ./$ft_test_name &> logs/$ft_test_name
+            valgrind $VALGRIND_OPTIONS ./$ft_test_name &> logs/$1/$ft_test_name
             ft_error=$?
         elif [ $TIME -eq 0 ]; then
-            ft_time=$(/usr/bin/time -f "%e" ./$ft_test_name 2>&1 > logs/$ft_test_name)
+            ft_time=$(/usr/bin/time -f "%e" ./$ft_test_name 2>&1 > logs/$1/$ft_test_name)
             ft_error=$?
         else
-            ./$ft_test_name &> logs/$ft_test_name
+            ./$ft_test_name &> logs/$1/$ft_test_name
             ft_error=$?
         fi
         rm -rf $ft_test_name
     fi
 
     # Setting up result (diff) values
-    diff $DIFF_FORMAT logs/$std_test_name logs/$ft_test_name &> logs/$output_diff
+    diff $DIFF_FORMAT logs/$1/$std_test_name logs/$1/$ft_test_name &> logs/$1/$output_diff
     local diff_result=$?
 
     # Cleaning logs if option not set
     if [ $diff_result -eq 0 ] && [ $NO_CLEAN -eq 1 ]; then
-        rm -rf logs/$std_test_name logs/$ft_test_name logs/$output_diff
+        rm -rf logs/$1/$std_test_name logs/$1/$ft_test_name logs/$1/$output_diff
     fi
 
     # Computing test result
@@ -96,7 +97,7 @@ test_container()
     elif [ $TIME -eq 0 ]; then
         print_columns_time
     else
-        print_columns
+        print_columns_result
     fi
     
     for file in ${test_files[@]}; do

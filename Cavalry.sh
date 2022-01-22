@@ -52,12 +52,11 @@ main()
 
     # Removing logs and executables if requested
     if [ $# -eq 1 ] && [ $1 = "clean" ]; then
-        rm -rf *.std *.ft logs/*
+        rm -rf *.std *.ft logs/vector/*
         echo "Cleaned!"
         exit 0
     fi
     
-
     # Launching tests
     check_containers ${CONTAINERS[@]}
     for container in ${CONTAINERS[@]}; do

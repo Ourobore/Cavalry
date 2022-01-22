@@ -127,18 +127,23 @@ test_container()
         print_columns_result
     fi
     
-    for file in ${test_files[@]}; do
-        # echo "verif: $file"
-        run_test_wrapper $1 $file "Y" ""
-    done
+    # Run tests for default and --leaks modes
+    if [ $TIME -eq 1 ]; then
+        for file in ${test_files[@]}; do
+            run_test_wrapper $1 $file "Y" ""
+        done
+    # Run tests for --time mode
+    else
+        local test_time_files=$(ls "$test_files_directory/time" | grep ".cpp")
+        for time_file in ${test_time_files[@]}; do
+            run_test_wrapper $1 $time_file "Y" "time/"
+        done
+    fi
 
     # Do compilation tests if not in --leaks or --time modes
     if [ $LEAKS -eq 1 ] && [ $TIME -eq 1 ]; then
-        # echo "aaaah: $test_files_directory"
-        # echo "ls: $(ls $test_files_directory/compilation)"
         local test_compilation_files=$(ls "$test_files_directory/compilation" | grep ".cpp")
         for compilation_file in ${test_compilation_files[@]}; do
-            # echo "verif: $compilation_file"
             run_test_wrapper $1 $compilation_file "N" "compilation/"
         done
     fi

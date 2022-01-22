@@ -5,7 +5,11 @@ VALGRIND_OPTIONS="--leak-check=full --error-exitcode=42"
 CCFLAGS="-Wall -Werror -Wextra -g3 -std=c++98 $SANITIZE"
 TESTS_INCLUDES="-I. -I.. -I./srcs -I./srcs/utils"
 
-# compile ft/std test_file.cpp container exec_name
+# Compiles test
+#   $1 -> NAMESPACE: ft/std
+#   $2 -> test name
+#   $3 -> container
+#   $4 -> exec_name
 compile()
 {
     $CC $CCFLAGS -DNAMESPACE=$1 -DCAPACITY=$NO_CAPACITY -DLEAKS=$LEAKS $TESTS_INCLUDES $USER_INCLUDES $2 -o $4 &> logs/$3/$4
@@ -15,6 +19,8 @@ compile()
 # Run test corresponding to function arguments and options: 
 #   $1 -> container
 #   $2 -> test_file
+#   $3 -> should compile
+#   $4 -> additional path
 run_test_wrapper()
 {
     # Creating distinguishable test names
@@ -25,9 +31,9 @@ run_test_wrapper()
     mkdir -p ./logs/$1
 
     # Compiling tests
-    compile std srcs/$1/$2 $1 $std_test_name
+    compile std srcs/$1/$4$2 $1 $std_test_name
     std_compiled=$?
-    compile ft srcs/$1/$2 $1 $ft_test_name
+    compile ft srcs/$1/$4$2 $1 $ft_test_name
     ft_compiled=$?
 
     std_error=$std_compiled
@@ -67,6 +73,12 @@ run_test_wrapper()
     if [ $diff_result -eq 0 ] && [ $NO_CLEAN -eq 1 ]; then
         rm -rf logs/$1/$std_test_name logs/$1/$ft_test_name logs/$1/$output_diff
     fi
+    # If test should not compile and it did not, delete logs (if no --no-clean)
+    if [ $3 = "N" ] && [ $std_compiled -eq 1 ] && [ $ft_compiled -eq 1 ] \
+        && [ $std_error = 1 ] && [ $ft_error = 1 ] && [ $NO_CLEAN -eq 1 ]; then
+        rm -rf logs/$1/$std_test_name logs/$1/$ft_test_name logs/$1/$output_diff
+    fi
+    # If --leaks and the test does not leak, delete logs (if no --no-clean)
     if [ $ft_error -eq 0 ] && [ $LEAKS -eq 0 ] && [ $NO_CLEAN -eq 1 ]; then
         rm -rf logs/$1/$1.$test_name.leaks
     fi
@@ -74,11 +86,21 @@ run_test_wrapper()
 
     # Computing test result
     local test_result=1
-    if [ $diff_result -eq 0 ] && [ $std_compiled -eq 0 ] && [ $ft_compiled -eq 0 ] \
-        && [ $std_error = 0 ] && [ $ft_error = 0 ]; then
-        test_result=0
+    if [ $3 = "Y" ]; then
+        if [ $diff_result -eq 0 ] && [ $std_compiled -eq 0 ] && [ $ft_compiled -eq 0 ] \
+         && [ $std_error = 0 ] && [ $ft_error = 0 ]; then
+            test_result=0
+        else
+            test_result=1
+        fi
+    # Computing result for compilation tests
     else
-        test_result=1
+        if [ $std_compiled -eq 1 ] && [ $ft_compiled -eq 1 ] \
+         && [ $std_error = 1 ] && [ $ft_error = 1 ]; then
+            test_result=0
+        else
+            test_result=1
+        fi
     fi
     
     #Printing test results
@@ -87,7 +109,7 @@ run_test_wrapper()
     elif [ $TIME -eq 0 ]; then
         print_test_time "$1/$2" $std_compiled $ft_compiled $test_result $std_time $ft_time
     else
-        print_test_result "$1/$2" $std_compiled $ft_compiled $test_result
+        print_test_result "$1/$2" $std_compiled $ft_compiled $test_result $3
     fi
 }
 
@@ -106,8 +128,20 @@ test_container()
     fi
     
     for file in ${test_files[@]}; do
-        run_test_wrapper $1 $file
+        # echo "verif: $file"
+        run_test_wrapper $1 $file "Y" ""
     done
+
+    # Do compilation tests if not in --leaks or --time modes
+    if [ $LEAKS -eq 1 ] && [ $TIME -eq 1 ]; then
+        # echo "aaaah: $test_files_directory"
+        # echo "ls: $(ls $test_files_directory/compilation)"
+        local test_compilation_files=$(ls "$test_files_directory/compilation" | grep ".cpp")
+        for compilation_file in ${test_compilation_files[@]}; do
+            # echo "verif: $compilation_file"
+            run_test_wrapper $1 $compilation_file "N" "compilation/"
+        done
+    fi
 }
 
 

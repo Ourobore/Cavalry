@@ -156,6 +156,7 @@ print_test_time()
 #   $2 -> std compilation
 #   $3 -> ft compilation
 #   $4 -> test result
+#   $5 -> should compile ('Y' or 'N')
 print_test_result()
 {
     local std_compiled=$(print_emoji_result $2)
@@ -163,7 +164,7 @@ print_test_result()
     local result=$(transform_status $4)
 
 
-    printf "%-33s|       (Y)[%s]   [%s](Y)      |      [%s]\n" "$1" "$std_compiled" "$ft_compiled" "$result"
+    printf "%-33s|       ($5)[%s]   [%s]($5)      |      [%s]\n" "$1" "$std_compiled" "$ft_compiled" "$result"
 }
 
 print_header()

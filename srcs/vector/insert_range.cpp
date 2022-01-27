@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:38:51 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 15:01:42 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:03:32 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int main()
     v.insert(it, v.begin(), v.begin() + 3);
     ft::printContainer(v, CAPACITY);
 
+    it = v.begin() + (v.size() / 2);
     v.insert(it, v.begin() + 7, v.begin() + 10);
     ft::printContainer(v, CAPACITY);
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_position_begin.cpp                          :+:      :+:    :+:   */
+/*   swap.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/22 17:31:17 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 09:15:39 by lchapren         ###   ########.fr       */
+/*   Created: 2022/01/27 09:57:52 by lchapren          #+#    #+#             */
+/*   Updated: 2022/01/27 10:03:33 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int main()
 {
-    NAMESPACE::vector<TYPE> v;
+    NAMESPACE::vector<TYPE> v1(10000000, TYPE(42));
+    NAMESPACE::vector<TYPE> v2(10000000, TYPE(84));
 
-    // At the beginning
-    for (size_t i = 0; i < 20000; ++i)
-        v.insert(v.begin(), TYPE(42));
+    v1.swap(v2);
 }

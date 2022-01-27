@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_position_begin.cpp                          :+:      :+:    :+:   */
+/*   insert_range_begin.cpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/22 17:31:17 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 09:15:39 by lchapren         ###   ########.fr       */
+/*   Created: 2022/01/27 09:16:09 by lchapren          #+#    #+#             */
+/*   Updated: 2022/01/27 09:26:00 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main()
 {
-    NAMESPACE::vector<TYPE> v;
+    NAMESPACE::vector<TYPE> v(3, TYPE(42));
 
     // At the beginning
     for (size_t i = 0; i < 20000; ++i)
-        v.insert(v.begin(), TYPE(42));
+        v.insert(v.begin(), v.begin(), v.begin() + 3);
 }

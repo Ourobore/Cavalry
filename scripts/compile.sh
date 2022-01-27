@@ -53,7 +53,7 @@ run_test_wrapper()
     # Setting up FT tests return values for basic, leaks and time modes
     if [ $ft_compiled -eq 0 ]; then
         if [ $LEAKS -eq 0 ]; then
-            valgrind $VALGRIND_OPTIONS  --log-file=logs/$1/$1.$test_name.leaks ./$ft_test_name &> logs/$1/$ft_test_name
+            valgrind $VALGRIND_OPTIONS --log-file=logs/$1/$1.$test_name.leaks ./$ft_test_name &> logs/$1/$ft_test_name
             ft_error=$?
         elif [ $TIME -eq 0 ]; then
             ft_time=$(/usr/bin/time -f "%e" ./$ft_test_name 2>&1 > logs/$1/$ft_test_name)

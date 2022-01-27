@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:18:27 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 09:34:11 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 10:29:06 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,20 @@
 
 int main()
 {
-    NAMESPACE::vector<TYPE> v(3, TYPE(42));
+    {
+        NAMESPACE::vector<TYPE> v(3, TYPE(42));
 
-    // At the end (with 100 times (x3 numbers inserted) more inserts than insert_range_begin)
-    for (size_t i = 0; i < 2000000; ++i)
-        v.insert(v.end(), v.begin(), v.begin() + 3);
+        // At the end (with 100 times (x3 numbers inserted) more inserts than insert_range_begin)
+        for (size_t i = 0; i < 2000000; ++i)
+            v.insert(v.end(), v.begin(), v.begin() + 3);
+    }
+
+    // Same setup as insert_range_begin
+    // {
+    //     NAMESPACE::vector<TYPE> v(3, TYPE(42));
+
+    //     // At the beginning
+    //     for (size_t i = 0; i < 20000; ++i)
+    //         v.insert(v.end(), v.begin(), v.begin() + 3);
+    // }
 }

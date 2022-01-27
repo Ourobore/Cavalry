@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:30:59 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 11:35:45 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 12:10:32 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ void printStack(Container c, bool content = true)
         while (c.size() != 0)
         {
             std::cout << c.top();
-            if (c.size() > 0)
+            if (c.size() > 1)
                 std::cout << ", ";
+            c.pop();
         }
         std::cout << " ]" << std::endl;
     }

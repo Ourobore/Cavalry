@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 13:53:55 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 14:59:12 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 11:37:12 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
         v.push_back(TYPE(i));
 
     std::cout << "--- Allocator ---" << std::endl;
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -60,14 +60,14 @@ int main()
     NAMESPACE::vector<TYPE, NAMESPACE::vector<TYPE>::allocator_type > v1;
     v1.push_back(TYPE(42));
     std::cout << "v1: " << std::endl;
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
     NAMESPACE::vector<TYPE, std::list<TYPE>::allocator_type > v2;
     v2.push_back(TYPE(42));
     std::cout << "v2: " << std::endl;
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
     NAMESPACE::vector<TYPE, std::deque<Foo>::allocator_type > v3;
     v3.push_back(TYPE(42));
     std::cout << "v3: " << std::endl;
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
     std::cout << "  -> It seems to be good. The STL seems to not really care of the type of allocator passed" << std::endl;
 }

@@ -26,7 +26,7 @@ void test_iterator(NAMESPACE::vector<TYPE> v, Iterator it)
 
     std::cout << "--- Modifying values via iterator (+= then -=) ---" << std::endl;
     std::cout << "Before ->" << std::endl;
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
 
     // for (it = v.begin(); it != v.end(); ++it)
     //     (*it) += 2;
@@ -35,7 +35,7 @@ void test_iterator(NAMESPACE::vector<TYPE> v, Iterator it)
 
     std::cout << std::endl;
     std::cout << "After ->" << std::endl;
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     std::cout << "--- Iterator arithmetics---" << std::endl;
@@ -55,7 +55,7 @@ int main()
     NAMESPACE::vector<TYPE> v;
     for (size_t i = 36; i < 126; ++i)
         v.push_back(TYPE(i));
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
 
     NAMESPACE::vector<TYPE>::iterator       it = v.begin() + 10;
     NAMESPACE::vector<TYPE>::const_iterator cit = v.begin() + 10;

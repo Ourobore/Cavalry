@@ -8,7 +8,7 @@ int main()
 {
     NAMESPACE::vector<TYPE> v;
     v.insert(v.begin(), 2000, TYPE(42));
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -18,7 +18,7 @@ int main()
 
     std::cout << "--- Resize() same capacity ---" << std::endl;
     v.resize(v.capacity());
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -28,7 +28,7 @@ int main()
 
     std::cout << "--- Resize() lower capacity ---" << std::endl;
     v.resize(v.capacity() - 1000);
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -38,7 +38,7 @@ int main()
 
     std::cout << "--- Resize() higher capacity ---" << std::endl;
     v.resize(2000000);
-    ft::printContainer(v, true, false);
+    ft::printVector(v, CAPACITY, false);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -54,12 +54,12 @@ int main()
     try
     {
         v.resize(v.max_size() - 1);
-        ft::printContainer(v, true, false);
+        ft::printVector(v, CAPACITY, false);
         std::cout << "Not Thrown: Throws std::bad_alloc if allocator failed to allocate" << std::endl;
     }
     catch (std::bad_alloc)
     {
-        ft::printContainer(v, true, false);
+        ft::printVector(v, CAPACITY, false);
         std::cout << "Thrown: Throws std::bad_alloc if allocator failed to allocate" << std::endl;
     }
 
@@ -73,12 +73,12 @@ int main()
     try
     {
         v.resize(v.max_size());
-        ft::printContainer(v, true, false);
+        ft::printVector(v, CAPACITY, false);
         std::cout << "Not Thrown: Throws std::bad_alloc if allocator failed to allocate" << std::endl;
     }
     catch (std::bad_alloc)
     {
-        ft::printContainer(v, true, false);
+        ft::printVector(v, CAPACITY, false);
         std::cout << "Thrown: Throws std::bad_alloc if allocator failed to allocate" << std::endl;
     }
 
@@ -92,17 +92,17 @@ int main()
     try
     {
         v.resize(v.max_size() + 1);
-        ft::printContainer(v, true, false);
+        ft::printVector(v, CAPACITY, false);
         std::cout << "Bad! Should throw at least a std::length_error!" << std::endl;
     }
     catch (std::bad_alloc)
     {
-        ft::printContainer(v, true, false);
+        ft::printVector(v, CAPACITY, false);
         std::cout << "Thrown: Throws std::bad_alloc if allocator failed to allocate" << std::endl;
     }
     catch (std::length_error)
     {
-        ft::printContainer(v, true, false);
+        ft::printVector(v, CAPACITY, false);
         std::cout << "Good! It throws std::length_error!" << std::endl;
     }
 

@@ -35,7 +35,7 @@ int main()
     NAMESPACE::vector<Foo > vfoo;
     for (size_t i = 0; i < 50; ++i)
         vfoo.push_back(Foo(i));
-    ft::printContainer(vfoo);
+    ft::printVector(vfoo, CAPACITY);
 
     NAMESPACE::vector<Foo>::iterator       it = vfoo.begin() + 21;
     NAMESPACE::vector<Foo>::const_iterator cit = vfoo.begin() + 21;

@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:30:59 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 11:08:02 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 11:35:45 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ namespace ft
 {
 
 template <class Container>
-void printContainer(Container& c, bool capacity = true, bool content = true)
+void printVector(Container& c, bool capacity = true, bool content = true)
 {
     ft::printSeparator('=', 1, 45);
 
@@ -38,6 +38,31 @@ void printContainer(Container& c, bool capacity = true, bool content = true)
             // std::cout << "[" << i << "]: ";
             std::cout << c[i];
             if (i < c.size() - 1)
+                std::cout << ", ";
+        }
+        std::cout << " ]" << std::endl;
+    }
+    else
+        std::cout << "(Content printing omitted)" << std::endl;
+
+    ft::printSeparator('=', 1, 45);
+}
+
+template <class Container>
+void printStack(Container c, bool content = true)
+{
+    ft::printSeparator('=', 1, 45);
+
+    std::cout << "Size: [" << c.size() << "]";
+    std::cout << std::endl;
+
+    if (content)
+    {
+        std::cout << "[ ";
+        while (c.size() != 0)
+        {
+            std::cout << c.top();
+            if (c.size() > 0)
                 std::cout << ", ";
         }
         std::cout << " ]" << std::endl;

@@ -76,7 +76,7 @@ int main()
     NAMESPACE::vector<TYPE> v;
     for (size_t i = 36; i < 126; ++i)
         v.push_back(TYPE(i));
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();

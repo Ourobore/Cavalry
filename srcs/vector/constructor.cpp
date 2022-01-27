@@ -8,7 +8,7 @@ int main()
         std::cout << "--- Empty vector (default constructor) ---" << std::endl;
 
         NAMESPACE::vector<TYPE> v;
-        ft::printContainer(v);
+        ft::printVector(v, CAPACITY);
 
         std::cout << std::endl;
         ft::printSeparator();
@@ -19,10 +19,10 @@ int main()
         std::cout << "--- Filled vector (fill constructor) ---" << std::endl;
 
         NAMESPACE::vector<TYPE> v0(21);
-        ft::printContainer(v0);
+        ft::printVector(v0, CAPACITY);
 
         NAMESPACE::vector<TYPE> v3(21, 3);
-        ft::printContainer(v3);
+        ft::printVector(v3, CAPACITY);
 
         std::cout << std::endl;
         ft::printSeparator();
@@ -36,7 +36,7 @@ int main()
     int val = 0;
     for (it = vec.begin(); it != vec.end(); ++it, ++val)
         *it = val;
-    ft::printContainer(vec);
+    ft::printVector(vec, CAPACITY);
 
     // #########################################################
     {
@@ -46,10 +46,10 @@ int main()
         std::cout << "--- Range vector (range constructor) ---" << std::endl;
 
         NAMESPACE::vector<TYPE> v(vec.begin(), vec.end());
-        ft::printContainer(v);
+        ft::printVector(v, CAPACITY);
 
         NAMESPACE::vector<TYPE> vv(vec.begin() + 3, vec.end() - 6);
-        ft::printContainer(vv);
+        ft::printVector(vv, CAPACITY);
 
         std::cout << std::endl;
         ft::printSeparator();
@@ -62,7 +62,7 @@ int main()
         NAMESPACE::vector<TYPE> v(vec);
         NAMESPACE::vector<TYPE> v1;
         NAMESPACE::vector<TYPE> v2(v1);
-        ft::printContainer(v);
-        ft::printContainer(v2);
+        ft::printVector(v, CAPACITY);
+        ft::printVector(v2, CAPACITY);
     }
 }

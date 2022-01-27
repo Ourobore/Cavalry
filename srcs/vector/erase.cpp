@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 14:18:35 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 15:01:06 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 11:42:49 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
     NAMESPACE::vector<TYPE> copy(v);
 
     std::cout << "--- Erase ---" << std::endl;
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -34,10 +34,10 @@ int main()
     // ##################################################################################
     std::cout << "At begin():" << std::endl;
     v.erase(v.begin());
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(v.begin(), v.begin() + 4);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -46,13 +46,13 @@ int main()
     // ##################################################################################
     std::cout << "At end():" << std::endl;
     // v.erase(v.end()); // STL segfault on this one, which seems normal. Do your vector segfault?
-    // ft::printContainer(v, CAPACITY);
+    // ft::printVector(v, CAPACITY);
 
     v.erase(v.end() - 1);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(v.end() - 9, v.end());
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -63,22 +63,22 @@ int main()
     NAMESPACE::vector<TYPE>::iterator it = v.begin() + (v.size() / 2);
     std::cout << "Position: " << *it << std::endl;
     v.erase(it);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(it);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(it, it + 2);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(it + 1, it + 3);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(it - 3, it);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(it - 2, it + 3);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -87,19 +87,19 @@ int main()
     // ##################################################################################
     std::cout << "Empty range:" << std::endl;
     v.erase(v.begin(), v.begin());
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(v.end(), v.end());
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(v.begin() + 3, v.begin() + 3);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(v.end() + 1000, v.end() + 1000);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(it, it);
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -108,8 +108,8 @@ int main()
     // ##################################################################################
     std::cout << "Full range:" << std::endl;
     v.erase(v.begin(), v.end());
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 
     v.erase(v.begin(), v.end());
-    ft::printContainer(v, CAPACITY);
+    ft::printVector(v, CAPACITY);
 }

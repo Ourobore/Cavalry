@@ -41,7 +41,7 @@ int main()
     NAMESPACE::vector<TYPE> v;
     for (size_t i = 36; i < 126; ++i)
         v.push_back(TYPE(i));
-    ft::printContainer(v);
+    ft::printVector(v, CAPACITY);
 
     NAMESPACE::vector<TYPE>::iterator       it = v.end() - 8;
     NAMESPACE::vector<TYPE>::const_iterator cit = v.end() - 8;

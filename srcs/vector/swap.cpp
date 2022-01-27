@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:08:00 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 15:02:48 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 11:47:09 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int main()
 
     std::cout << "--- Swap() ---" << std::endl;
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -44,27 +44,27 @@ int main()
     std::cout << "Non member overload:" << std::endl;
     NAMESPACE::swap(v1, v2);
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
 
     std::cout << "Member overload (from v1):" << std::endl;
     v1.swap(v2);
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
 
     std::cout << "Member overload (from v2):" << std::endl;
     v2.swap(v1);
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -78,27 +78,27 @@ int main()
     std::cout << "Non member overload:" << std::endl;
     NAMESPACE::swap(v1, v2);
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
 
     std::cout << "Member overload (from v1):" << std::endl;
     v1.swap(v2);
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
 
     std::cout << "Member overload (from v2):" << std::endl;
     v2.swap(v1);
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -113,25 +113,25 @@ int main()
     std::cout << "Non member overload:" << std::endl;
     NAMESPACE::swap(v1, v2);
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
 
     std::cout << "Member overload (from v1):" << std::endl;
     v1.swap(v2);
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
 
     std::cout << "Member overload (from v2):" << std::endl;
     v2.swap(v1);
     std::cout << "v1:" << std::endl;
-    ft::printContainer(v1, CAPACITY);
+    ft::printVector(v1, CAPACITY);
     std::cout << "v2:" << std::endl;
-    ft::printContainer(v2, CAPACITY);
+    ft::printVector(v2, CAPACITY);
 }

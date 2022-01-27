@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:33:37 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/20 15:02:01 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 11:44:30 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
     std::cout << "At begin():" << std::endl;
     v.insert(v.begin(), ++value);
     v.insert(v.begin(), ++value);
-    ft::printContainer(v, false);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -35,7 +35,7 @@ int main()
     v.insert(v.begin() + 1, ++value);
     v.insert(v.begin() + 3, ++value);
     v.insert(v.begin() + (v.size() - 1), ++value);
-    ft::printContainer(v, false);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -47,7 +47,7 @@ int main()
     v.insert(v.end() - 3, ++value);
     v.insert(v.end() - 4, ++value);
     v.insert(v.end() - v.size(), ++value);
-    ft::printContainer(v, false);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -60,7 +60,7 @@ int main()
     v.insert(it, ++value);
     v.insert(it, ++value);
     v.insert(it, ++value);
-    ft::printContainer(v, false);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -74,7 +74,7 @@ int main()
     v.insert(it + 2, ++value);
     v.insert(it + 3, ++value);
     v.insert(it + ((v.end() - v.begin()) / 3), ++value);
-    ft::printContainer(v, false);
+    ft::printVector(v, CAPACITY);
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -88,5 +88,5 @@ int main()
     v.insert(it - 1, ++value);
     v.insert(it - 3, ++value);
     v.insert(it - ((v.end() - v.begin()) / 3), ++value);
-    ft::printContainer(v, false);
+    ft::printVector(v, CAPACITY);
 }

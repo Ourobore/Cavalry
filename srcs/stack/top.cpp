@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 15:01:42 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 15:13:55 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 15:20:26 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,13 @@ int main()
     std::cout << std::endl;
     std::cout << " -> Real Original stack" << std::endl;
     ft::printStack(s);
+
+    std::cout << std::endl;
+    ft::printSeparator();
+    std::cout << std::endl;
+
+    // // Undefined behaviour in std::vector
+    // std::cout << "Using top() if stack is empty: " << std::endl;
+    // s.top() = TYPE(42);
+    // ft::printStack(s);
 }

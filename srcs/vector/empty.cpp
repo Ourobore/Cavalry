@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 13:32:07 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 11:42:09 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 14:39:20 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main()
 {
-
     NAMESPACE::vector<TYPE> v;
 
     size_t first_elem = 30;

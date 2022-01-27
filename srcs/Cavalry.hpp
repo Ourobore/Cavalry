@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:05:09 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/22 18:05:55 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 12:16:49 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 #include <map>
 #include <stack>
 #include <vector>
+
+#include <list>
 
 // Testing class
 class Foo

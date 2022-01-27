@@ -6,13 +6,11 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:06:00 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 12:14:37 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 12:17:01 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cavalry.hpp"
-
-#include <list>
 
 int main()
 {

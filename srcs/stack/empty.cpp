@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:15:55 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 15:02:33 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 15:53:18 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main()
     std::cout << std::endl;
 
     // ##################################################################################
+
     std ::cout << "When the stack IS NOT empty:" << std::endl;
     ft::printStack(s);
     if (s.empty())
@@ -42,6 +43,7 @@ int main()
     std::cout << std::endl;
 
     // ##################################################################################
+
     std ::cout << "When the stack IS empty:" << std::endl;
     while (s.size())
         s.pop();

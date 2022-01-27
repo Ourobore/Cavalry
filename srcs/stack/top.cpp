@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 15:01:42 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 15:20:26 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 15:53:48 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,14 @@ int main()
     ft::printSeparator();
     std::cout << std::endl;
 
+    // ##################################################################################
+
     std::cout << "Basic (just top() call): " << s.top() << std::endl;
     ft::printStack(s);
 
     std::cout << std::endl;
+
+    // ##################################################################################
 
     TYPE old_top = s.top();
     s.top() = TYPE(84);
@@ -37,6 +41,8 @@ int main()
     s.top() = old_top;
 
     std::cout << std::endl;
+
+    // ##################################################################################
 
     std::cout << "Creating inverted stack (top() / pop() copy):" << std::endl;
     NAMESPACE::stack<TYPE> copy(s);

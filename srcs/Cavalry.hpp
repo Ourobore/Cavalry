@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:05:09 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 12:16:49 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/27 22:00:14 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 #include "print_container.hpp"
 #include "print_separator.hpp"
 #include "print_traits.hpp"
+#include "to_string.hpp"
 
 // Containers includes
 #include "map.hpp"

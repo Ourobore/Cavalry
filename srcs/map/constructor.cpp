@@ -1,0 +1,70 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   constructor.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/28 09:10:48 by lchapren          #+#    #+#             */
+/*   Updated: 2022/01/28 09:21:55 by lchapren         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Cavalry.hpp"
+
+int main()
+{
+    {
+        ft::printSeparator();
+        std::cout << std::endl;
+        std::cout << "--- Empty map (default constructor) ---" << std::endl;
+
+        NAMESPACE::map<int, TYPE> m;
+        ft::printMap(m);
+
+        std::cout << std::endl;
+        ft::printSeparator();
+        std::cout << std::endl;
+    }
+    // #########################################################
+
+    NAMESPACE::map<int, TYPE>         map;
+    NAMESPACE::vector<TYPE>::iterator it;
+
+    int val = 0;
+    while (val != 10)
+    {
+        map.insert(NAMESPACE::make_pair(val, TYPE(val * 10)));
+        ++val;
+    }
+    ft::printMap(map);
+
+    // #########################################################
+    {
+        std::cout << std::endl;
+        ft::printSeparator();
+        std::cout << std::endl;
+        std::cout << "--- Range vector (range constructor) ---" << std::endl;
+
+        NAMESPACE::map<int, TYPE> m1(map.begin(), map.end());
+        ft::printMap(m1);
+
+        NAMESPACE::map<int, TYPE> m2(++(++(++map.begin())), --(--map.end()));
+        ft::printMap(m2);
+
+        std::cout << std::endl;
+        ft::printSeparator();
+        std::cout << std::endl;
+    }
+    // #########################################################
+    {
+        std::cout << "--- Copied vector (copy constructor) ---" << std::endl;
+
+        NAMESPACE::map<int, TYPE> m1(map);
+        NAMESPACE::map<int, TYPE> m2;
+        NAMESPACE::map<int, TYPE> m3(m2);
+        ft::printMap(m1);
+        ft::printMap(m2);
+        ft::printMap(m3);
+    }
+}

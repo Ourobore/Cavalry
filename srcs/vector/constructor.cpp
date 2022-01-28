@@ -63,6 +63,7 @@ int main()
         NAMESPACE::vector<TYPE> v1;
         NAMESPACE::vector<TYPE> v2(v1);
         ft::printVector(v, CAPACITY);
+        ft::printVector(v1, CAPACITY);
         ft::printVector(v2, CAPACITY);
     }
 }

@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:05:09 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 22:00:14 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/28 10:44:43 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,30 @@ class Foo
     {
         return (bar);
     };
+    bool operator==(const Foo& rhs) const
+    {
+        return (this->getBar() == rhs.getBar());
+    }
+    bool operator!=(const Foo& rhs) const
+    {
+        return !(*this == rhs);
+    }
+    bool operator<(const Foo& rhs) const
+    {
+        return (this->getBar() < rhs.getBar());
+    }
+    bool operator>(const Foo& rhs) const
+    {
+        return (!(*this < rhs) && *this != rhs);
+    }
+    bool operator<=(const Foo& rhs) const
+    {
+        return (*this < rhs || *this == rhs);
+    }
+    bool operator>=(const Foo& rhs) const
+    {
+        return (*this > rhs || *this == rhs);
+    }
 };
 
 std::ostream& operator<<(std::ostream& o, Foo const& rhs)

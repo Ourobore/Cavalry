@@ -1,7 +1,7 @@
 #include "Cavalry.hpp"
 
 template <class Iterator>
-void relational_iterator(NAMESPACE::vector<TYPE> v, Iterator it)
+void relational_iterator(NAMESPACE::vector<TYPE>& v, Iterator it)
 {
     Iterator itt = v.begin() + 13;
     std::cout << "--- Relational operators (basics) ---" << std::endl;

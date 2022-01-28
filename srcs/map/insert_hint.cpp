@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:14:37 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 11:40:48 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/28 13:48:26 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
     NAMESPACE::map<int, TYPE>           m;
     NAMESPACE::map<int, TYPE>::iterator result;
 
-    std::cout << "--- Insert: single element ---" << std::endl;
+    std::cout << "--- Insert: hint ---" << std::endl;
     ft::printMap(m);
 
     std::cout << std::endl;

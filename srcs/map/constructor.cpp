@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 09:10:48 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 09:21:55 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/28 14:49:43 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main()
         std::cout << std::endl;
         ft::printSeparator();
         std::cout << std::endl;
-        std::cout << "--- Range vector (range constructor) ---" << std::endl;
+        std::cout << "--- Range map (range constructor) ---" << std::endl;
 
         NAMESPACE::map<int, TYPE> m1(map.begin(), map.end());
         ft::printMap(m1);
@@ -58,7 +58,7 @@ int main()
     }
     // #########################################################
     {
-        std::cout << "--- Copied vector (copy constructor) ---" << std::endl;
+        std::cout << "--- Copied map (copy constructor) ---" << std::endl;
 
         NAMESPACE::map<int, TYPE> m1(map);
         NAMESPACE::map<int, TYPE> m2;
@@ -66,5 +66,18 @@ int main()
         ft::printMap(m1);
         ft::printMap(m2);
         ft::printMap(m3);
+    }
+    // #########################################################
+    {
+        std::cout << "--- Assignment map (operator=) ---" << std::endl;
+
+        NAMESPACE::map<int, TYPE> m1 = map;
+        ft::printMap(map);
+        ft::printMap(m1);
+        std::cout << std::endl;
+        map.erase(--map.end());
+        m1 = map;
+        ft::printMap(map);
+        ft::printMap(m1);
     }
 }

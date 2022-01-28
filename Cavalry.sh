@@ -61,6 +61,7 @@ main()
     check_containers ${CONTAINERS[@]}
     for container in ${CONTAINERS[@]}; do
         test_container $container
+        printf "\n"
     done
 }
 

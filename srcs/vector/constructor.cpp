@@ -66,4 +66,17 @@ int main()
         ft::printVector(v1, CAPACITY);
         ft::printVector(v2, CAPACITY);
     }
+    // #########################################################
+    {
+        std::cout << "--- Assignement vector (operator=) ---" << std::endl;
+
+        NAMESPACE::vector<TYPE> v = vec;
+        ft::printVector(vec, CAPACITY);
+        ft::printVector(v, CAPACITY);
+        std::cout << std::endl;
+        vec.pop_back();
+        v = vec;
+        ft::printVector(vec, CAPACITY);
+        ft::printVector(v, CAPACITY);
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 09:54:04 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 10:03:05 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/28 13:42:12 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
     std::cout << std::endl;
 
     int val = 21;
-    while (m.size() != 424242)
+    while (m.size() != 15000)
     {
         m.insert(NAMESPACE::make_pair(val, TYPE(val)));
         ++val;
@@ -58,12 +58,12 @@ int main()
     ft::printMap(m, false);
     std::cout << std::endl;
 
-    for (size_t i = 0; i < 100000; ++i)
+    for (size_t i = 0; i < 10000; ++i)
         m.erase(--m.end());
     ft::printMap(m, false);
     std::cout << std::endl;
 
-    while (m.size() != 20000)
+    while (m.size() != 2000)
         m.erase(--m.end());
     ft::printMap(m, false);
 

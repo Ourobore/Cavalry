@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 09:54:04 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 13:42:12 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:21:22 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 
     ft::printMap(m);
     std::cout << std::endl;
-    std::cout << "max_size(): " << m.max_size() << std::endl; // Can comment if error in this test is just max_size and you want all green ;)
+    // std::cout << "max_size(): " << m.max_size() << std::endl; // Can comment if error in this test is just max_size and you want all green ;)
 
     m.insert(NAMESPACE::make_pair(-1, TYPE(-1)));
     m.insert(NAMESPACE::make_pair(-1, TYPE(-2)));

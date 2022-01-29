@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:53:55 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 09:07:50 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:21:04 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,12 @@ int main()
     // ##################################################################################
     std::cout << "max_size():" << std::endl;
 
-    std::cout << "Comparing max_size() from map and max_size() from allocator" << std::endl;
-    if (m.max_size() == allocator.max_size())
-        std::cout << "  -> Should be good if they are the same (they are). Can't compare values between FT and STL because it can change" << std::endl;
-    else
-        std::cout << "  -> Hum, they should be the same I think (but I am not sure... Hey, we are talking about max_size here^^)" << std::endl;
+    m.max_size();
+    // std::cout << "Comparing max_size() from map and max_size() from allocator" << std::endl;
+    // if (m.max_size() == allocator.max_size())
+    //     std::cout << "  -> Should be good if they are the same (they are). Can't compare values between FT and STL because it can change" << std::endl;
+    // else
+    //     std::cout << "  -> Hum, they should be the same I think (but I am not sure... Hey, we are talking about max_size here^^)" << std::endl;
 
     std::cout << std::endl;
     ft::printSeparator();

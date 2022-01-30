@@ -70,8 +70,11 @@ run_test_wrapper()
     local diff_result=$?
 
     # Cleaning logs if option not set
-    if [ $diff_result -eq 0 ] && [ $NO_CLEAN -eq 1 ]; then
-        rm -rf logs/$1/$std_test_name logs/$1/$ft_test_name logs/$1/$output_diff
+    if [ $diff_result -eq 0 ]; then
+        rm -rf logs/$1/$output_diff
+        if [ $NO_CLEAN -eq 1 ]; then
+            rm -rf logs/$1/$std_test_name logs/$1/$ft_test_name
+        fi
     fi
     # If test should not compile and it did not, delete logs (if no --no-clean)
     if [ $3 = "N" ] && [ $std_compiled -eq 1 ] && [ $ft_compiled -eq 1 ] \

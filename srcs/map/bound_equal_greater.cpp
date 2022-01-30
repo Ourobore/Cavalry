@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bound_equal.cpp                                    :+:      :+:    :+:   */
+/*   bound_equal_greater.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:21:42 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/30 17:35:24 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/30 18:30:22 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cavalry.hpp"
 
-template <class Compare>
-void equal_range_tests()
+int main()
 {
-    NAMESPACE::map<int, TYPE, Compare> m;
+    std::cout << "--- Equal range ---" << std::endl;
+
+    NAMESPACE::map<int, TYPE, std::greater<int> > m;
     for (size_t i = 40; i < 60; ++i)
         m.insert(NAMESPACE::make_pair(i, TYPE(i + 10)));
 
@@ -84,10 +85,10 @@ void equal_range_tests()
     NAMESPACE::pair<const int, TYPE> p2 = NAMESPACE::make_pair(60, TYPE(60 + 10));
     (void)p2;
     r1 = m.equal_range(60);
-    if (r1.first != m.end())
-        std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists and is greater than every other key: there should not be any bound (map::end())" << std::endl;
+    if (r1.first != m.begin())
+        std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists and is greater than every other key: the bound should be map::begin()" << std::endl;
     else
-        std::cout << "  -> Yes, there is no lower bound so you returned map::end()!" << std::endl;
+        std::cout << "  -> Yes, the lower bound is map::begin()!" << std::endl;
     std::cout << "Bound found: " << std::endl;
     for (NAMESPACE::map<int, TYPE>::iterator it = r1.first; it != r1.second; ++it)
         std::cout << "  -> " << ft::outputPair(*it) << std::endl;
@@ -101,10 +102,10 @@ void equal_range_tests()
     std::cout << "Key DOES NOT exists (const iterator):" << std::endl;
     std::cout << "(Key greater than every key in map)" << std::endl;
     r2 = m.equal_range(60);
-    if (r2.first != m.end())
-        std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists and is greater than every other key: there should not be any bound (map::end())" << std::endl;
+    if (r2.first != m.begin())
+        std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists and is greater than every other key: the bound should be map::begin()" << std::endl;
     else
-        std::cout << "  -> Yes, there is no lower bound so you returned map::end()!" << std::endl;
+        std::cout << "  -> Yes, the lower bound map::begin()!" << std::endl;
     std::cout << "Bound found: " << std::endl;
     for (NAMESPACE::map<int, TYPE>::const_iterator cit = r2.first; cit != r2.second; ++cit)
         std::cout << "  -> " << ft::outputPair(*cit) << std::endl;
@@ -120,16 +121,16 @@ void equal_range_tests()
     NAMESPACE::pair<const int, TYPE> p3 = NAMESPACE::make_pair(35, TYPE(35 + 10));
     (void)p3;
     r1 = m.equal_range(35);
-    if (r1.first == m.end())
-        std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists but the map is not empty and every other key is greater, should return map::begin()" << std::endl;
+    if (r1.first != m.end())
+        std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists but the map is not empty and every other key is greater, should return map::end()" << std::endl;
     else
     {
-        if (r1.first == m.begin())
-            std::cout << "  -> Yes you found the right lower bound (map::begin())!" << std::endl;
+        if (r1.first == m.end())
+            std::cout << "  -> Yes you found the right lower bound (map::end())!" << std::endl;
         else
         {
             std::cout << "  -> Huuum, that's not the right lower bound!" << std::endl;
-            std::cout << " That's the right lower bound (map::begin()): " << ft::outputPair(*m.begin()) << std::endl;
+            std::cout << " The right lower bound is map::end(): " << std::endl;
         }
         std::cout << "Bound found: " << std::endl;
         for (NAMESPACE::map<int, TYPE>::iterator it = r1.first; it != r1.second; ++it)
@@ -145,20 +146,20 @@ void equal_range_tests()
     std::cout << "Key DOES NOT exists (const iterator):" << std::endl;
     std::cout << "(Key smaller than every key in map)" << std::endl;
     r2 = m.equal_range(35);
-    if (r2.first == m.end())
-        std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists but the map is not empty and every other key is greater, should return map::begin()" << std::endl;
+    if (r2.first != m.end())
+        std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists but the map is not empty and every other key is greater, should return map::end()" << std::endl;
     else
     {
-        if (r2.first == m.begin())
-            std::cout << "  -> Yes you found the right lower bound (map::begin())!" << std::endl;
+        if (r2.first == m.end())
+            std::cout << "  -> Yes you found the right lower bound (map::end())!" << std::endl;
         else
         {
             std::cout << "  -> Huuum, that's not the right lower bound!" << std::endl;
-            std::cout << " That's the right lower bound (map::begin()): " << ft::outputPair(*m.begin()) << std::endl;
+            std::cout << " The right lower bound is map::end(): " << std::endl;
         }
         std::cout << "Bound found: " << std::endl;
-        for (NAMESPACE::map<int, TYPE>::const_iterator cit = r2.first; cit != r2.second; ++cit)
-            std::cout << "  -> " << ft::outputPair(*cit) << std::endl;
+        for (NAMESPACE::map<int, TYPE>::const_iterator it = r2.first; it != r2.second; ++it)
+            std::cout << "  -> " << ft::outputPair(*it) << std::endl;
     }
 
     std::cout << std::endl;
@@ -173,7 +174,7 @@ void equal_range_tests()
     std::cout << "Key DOES NOT exists (non const iterator):" << std::endl;
     std::cout << "(Missing key in between map keys)" << std::endl;
     NAMESPACE::pair<const int, TYPE> p4 = NAMESPACE::make_pair(60, TYPE(60 + 10));
-    NAMESPACE::pair<const int, TYPE> p5 = NAMESPACE::make_pair(61, TYPE(61 + 10));
+    NAMESPACE::pair<const int, TYPE> p5 = NAMESPACE::make_pair(59, TYPE(59 + 10));
     r1 = m.equal_range(60);
     if (r1.first == m.end())
         std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists but the map is not empty and every other keys are not smaller" << std::endl;
@@ -223,7 +224,7 @@ void equal_range_tests()
     // ##################################################################################
 
     std::cout << "Const map (just function call verification: I will not test every cases, I trust you here^^)" << std::endl;
-    const NAMESPACE::map<int, TYPE, Compare> n(m);
+    const NAMESPACE::map<int, TYPE, std::greater<int> > n(m);
     r2 = n.equal_range(60);
     if (r2.first == n.end())
         std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists but the map is not empty and every other keys are not smaller" << std::endl;
@@ -240,24 +241,4 @@ void equal_range_tests()
         for (NAMESPACE::map<int, TYPE>::const_iterator cit = r2.first; cit != r2.second; ++cit)
             std::cout << "  -> " << ft::outputPair(*cit) << std::endl;
     }
-}
-
-int main()
-{
-    std::cout << "--- Equal range ---" << std::endl;
-
-    equal_range_tests<std::less<int> >();
-
-    std::cout << std::endl;
-    ft::printSeparator();
-    ft::printSeparator();
-    ft::printSeparator();
-    std::cout << std::endl;
-
-    std::cout << std::endl;
-    std::cout << "!!! Debug messages will be broken here !!!" << std::endl;
-    std::cout << "But at least we can compare with the STL" << std::endl;
-    std::cout << std::endl;
-
-    equal_range_tests<std::greater<int> >();
 }

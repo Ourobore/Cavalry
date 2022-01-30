@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:46:00 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 14:03:59 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/30 18:35:41 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,12 @@ int main()
 
     m.insert(d.begin(), d.end());
     ft::printMap(m);
+
+    std::cout << std::endl;
+
+    std::cout << "map reverse iterator ->" << std::endl;
+    NAMESPACE::map<int, TYPE> n;
+
+    n.insert(m.rbegin(), m.rend());
+    ft::printMap(n);
 }

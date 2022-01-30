@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 09:10:48 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 14:49:43 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/30 18:34:52 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,17 @@ int main()
         map.erase(--map.end());
         m1 = map;
         ft::printMap(map);
+        ft::printMap(m1);
+
+        std::cout << std::endl;
+        ft::printSeparator();
+        std::cout << std::endl;
+    }
+    // #########################################################
+    {
+        std::cout << "--- Range map (range constructor with reverse_iterator) ---" << std::endl;
+
+        NAMESPACE::map<int, TYPE> m1(map.rbegin(), map.rend());
         ft::printMap(m1);
     }
 }

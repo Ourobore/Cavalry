@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lower_bound.cpp                                    :+:      :+:    :+:   */
+/*   bound_lower_less.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:59:19 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/29 11:53:58 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:52:03 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cavalry.hpp"
 
-template <class Compare>
-void lower_bound_tests()
+int main()
 {
-    NAMESPACE::map<int, TYPE, Compare> m;
+    std::cout << "--- Lower bound ---" << std::endl;
+
+    NAMESPACE::map<int, TYPE, std::less<int> > m;
     for (size_t i = 40; i < 60; ++i)
         m.insert(NAMESPACE::make_pair(i, TYPE(i + 10)));
 
@@ -205,7 +206,7 @@ void lower_bound_tests()
     // ##################################################################################
 
     std::cout << "Const map (just function call verification: I will not test every cases, I trust you here^^)" << std::endl;
-    const NAMESPACE::map<int, TYPE, Compare> n(m);
+    const NAMESPACE::map<int, TYPE, std::less<int> > n(m);
     cit = n.lower_bound(60);
     if (cit == n.end())
         std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists but the map is not empty and every other keys are not smaller" << std::endl;
@@ -220,24 +221,4 @@ void lower_bound_tests()
         }
         std::cout << "Bound found: " << ft::outputPair(*cit) << std::endl;
     }
-}
-
-int main()
-{
-    std::cout << "--- Lower bound ---" << std::endl;
-
-    lower_bound_tests<std::less<int> >();
-
-    std::cout << std::endl;
-    ft::printSeparator();
-    ft::printSeparator();
-    ft::printSeparator();
-    std::cout << std::endl;
-
-    std::cout << std::endl;
-    std::cout << "!!! Debug messages will be broken here !!!" << std::endl;
-    std::cout << "But at least we can compare with the STL" << std::endl;
-    std::cout << std::endl;
-
-    lower_bound_tests<std::greater<int> >();
 }

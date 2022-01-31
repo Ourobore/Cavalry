@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:45:33 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/29 18:01:37 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:29:26 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int main()
 {
-    const NAMESPACE::map<int, TYPE> m;
+    const NAMESPACE::set<TYPE> s;
 
     // Can't declare a non const iterator on a const instance
-    NAMESPACE::map<int, TYPE>::iterator it = m.begin();
+    NAMESPACE::set<TYPE>::iterator it = s.begin();
 
-    (void)m;
+    (void)s;
     (void)it;
 }

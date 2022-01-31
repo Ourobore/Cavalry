@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 12:23:41 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/30 12:24:37 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:34:59 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int main()
 {
-    // Erase all map elements, key by key (from end())
+    // Erase all set elements, key by key (from end())
 
-    NAMESPACE::map< int, int > m;
+    NAMESPACE::set<int > s;
     for (int i = 0; i < 100000; ++i)
-        m.insert(NAMESPACE::make_pair(i, i));
+        s.insert(i);
 
     int key = 100000 - 1;
-    while (m.size() != 0)
+    while (s.size() != 0)
     {
-        m.erase(key);
+        s.erase(key);
         --key;
     }
 }

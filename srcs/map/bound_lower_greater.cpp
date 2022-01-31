@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:59:19 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/30 18:04:33 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:47:44 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main()
     for (size_t i = 40; i < 60; ++i)
         m.insert(NAMESPACE::make_pair(i, TYPE(i + 10)));
 
-    NAMESPACE::map<int, TYPE>::iterator       it;
-    NAMESPACE::map<int, TYPE>::const_iterator cit;
+    NAMESPACE::map<int, TYPE, std::greater<int> >::iterator       it;
+    NAMESPACE::map<int, TYPE, std::greater<int> >::const_iterator cit;
 
     ft::printMap(m);
 

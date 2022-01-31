@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:21:42 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/30 18:30:22 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:46:46 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main()
     for (size_t i = 40; i < 60; ++i)
         m.insert(NAMESPACE::make_pair(i, TYPE(i + 10)));
 
-    NAMESPACE::pair<NAMESPACE::map<int, TYPE>::iterator, NAMESPACE::map<int, TYPE>::iterator>             r1;
-    NAMESPACE::pair<NAMESPACE::map<int, TYPE>::const_iterator, NAMESPACE::map<int, TYPE>::const_iterator> r2;
+    NAMESPACE::pair<NAMESPACE::map<int, TYPE, std::greater<int> >::iterator, NAMESPACE::map<int, TYPE, std::greater<int> >::iterator>             r1;
+    NAMESPACE::pair<NAMESPACE::map<int, TYPE, std::greater<int> >::const_iterator, NAMESPACE::map<int, TYPE, std::greater<int> >::const_iterator> r2;
 
     ft::printMap(m);
 
@@ -46,7 +46,7 @@ int main()
             std::cout << " That's the right lower bound: " << ft::outputPair(p1) << std::endl;
         }
         std::cout << "Bound found: " << std::endl;
-        for (NAMESPACE::map<int, TYPE>::iterator it = r1.first; it != r1.second; ++it)
+        for (NAMESPACE::map<int, TYPE, std::greater<int> >::iterator it = r1.first; it != r1.second; ++it)
             std::cout << "  -> " << ft::outputPair(*it) << std::endl;
     }
 
@@ -70,7 +70,7 @@ int main()
             std::cout << " That's the right lower bound: " << ft::outputPair(p1) << std::endl;
         }
         std::cout << "Bound found: " << std::endl;
-        for (NAMESPACE::map<int, TYPE>::const_iterator cit = r2.first; cit != r2.second; ++cit)
+        for (NAMESPACE::map<int, TYPE, std::greater<int> >::const_iterator cit = r2.first; cit != r2.second; ++cit)
             std::cout << "  -> " << ft::outputPair(*cit) << std::endl;
     }
 
@@ -90,7 +90,7 @@ int main()
     else
         std::cout << "  -> Yes, the lower bound is map::begin()!" << std::endl;
     std::cout << "Bound found: " << std::endl;
-    for (NAMESPACE::map<int, TYPE>::iterator it = r1.first; it != r1.second; ++it)
+    for (NAMESPACE::map<int, TYPE, std::greater<int> >::iterator it = r1.first; it != r1.second; ++it)
         std::cout << "  -> " << ft::outputPair(*it) << std::endl;
 
     std::cout << std::endl;
@@ -107,7 +107,7 @@ int main()
     else
         std::cout << "  -> Yes, the lower bound map::begin()!" << std::endl;
     std::cout << "Bound found: " << std::endl;
-    for (NAMESPACE::map<int, TYPE>::const_iterator cit = r2.first; cit != r2.second; ++cit)
+    for (NAMESPACE::map<int, TYPE, std::greater<int> >::const_iterator cit = r2.first; cit != r2.second; ++cit)
         std::cout << "  -> " << ft::outputPair(*cit) << std::endl;
 
     std::cout << std::endl;
@@ -133,7 +133,7 @@ int main()
             std::cout << " The right lower bound is map::end(): " << std::endl;
         }
         std::cout << "Bound found: " << std::endl;
-        for (NAMESPACE::map<int, TYPE>::iterator it = r1.first; it != r1.second; ++it)
+        for (NAMESPACE::map<int, TYPE, std::greater<int> >::iterator it = r1.first; it != r1.second; ++it)
             std::cout << "  -> " << ft::outputPair(*it) << std::endl;
     }
 
@@ -158,7 +158,7 @@ int main()
             std::cout << " The right lower bound is map::end(): " << std::endl;
         }
         std::cout << "Bound found: " << std::endl;
-        for (NAMESPACE::map<int, TYPE>::const_iterator it = r2.first; it != r2.second; ++it)
+        for (NAMESPACE::map<int, TYPE, std::greater<int> >::const_iterator it = r2.first; it != r2.second; ++it)
             std::cout << "  -> " << ft::outputPair(*it) << std::endl;
     }
 
@@ -188,7 +188,7 @@ int main()
             std::cout << " That's the right lower bound: " << ft::outputPair(p4) << std::endl;
         }
         std::cout << "Bound found: " << std::endl;
-        for (NAMESPACE::map<int, TYPE>::iterator it = r1.first; it != r1.second; ++it)
+        for (NAMESPACE::map<int, TYPE, std::greater<int> >::iterator it = r1.first; it != r1.second; ++it)
             std::cout << "  -> " << ft::outputPair(*it) << std::endl;
     }
 
@@ -213,7 +213,7 @@ int main()
             std::cout << " That's the right lower bound: " << ft::outputPair(p4) << std::endl;
         }
         std::cout << "Bound found: " << std::endl;
-        for (NAMESPACE::map<int, TYPE>::const_iterator cit = r2.first; cit != r2.second; ++cit)
+        for (NAMESPACE::map<int, TYPE, std::greater<int> >::const_iterator cit = r2.first; cit != r2.second; ++cit)
             std::cout << "  -> " << ft::outputPair(*cit) << std::endl;
     }
 
@@ -238,7 +238,7 @@ int main()
             std::cout << " That's the right lower bound: " << ft::outputPair(p4) << std::endl;
         }
         std::cout << "Bound found: " << std::endl;
-        for (NAMESPACE::map<int, TYPE>::const_iterator cit = r2.first; cit != r2.second; ++cit)
+        for (NAMESPACE::map<int, TYPE, std::greater<int> >::const_iterator cit = r2.first; cit != r2.second; ++cit)
             std::cout << "  -> " << ft::outputPair(*cit) << std::endl;
     }
 }

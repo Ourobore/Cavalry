@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:30:59 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 10:53:53 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 21:25:50 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ namespace ft
 {
 
 template <class Container>
-void printVector(Container& c, bool capacity = true, bool content = true)
+void printVector(const Container& c, bool capacity = true, bool content = true)
 {
     ft::printSeparator('=', 1, 45);
 
@@ -75,7 +75,7 @@ void printStack(Container c, bool content = true)
 }
 
 template <class Container>
-void printMap(Container& c, bool content = true)
+void printMap(const Container& c, bool content = true)
 {
     ft::printSeparator('=', 1, 45);
 
@@ -85,7 +85,7 @@ void printMap(Container& c, bool content = true)
     if (content)
     {
         std::cout << "[ ";
-        for (typename Container::iterator it = c.begin(); it != c.end();)
+        for (typename Container::const_iterator it = c.begin(); it != c.end();)
         {
             std::cout << "[" << it->first << "]: " << it->second;
             ++it;
@@ -101,7 +101,7 @@ void printMap(Container& c, bool content = true)
 }
 
 template <class Container>
-void printSet(Container& c, bool content = true)
+void printSet(const Container& c, bool content = true)
 {
     ft::printSeparator('=', 1, 45);
 
@@ -111,7 +111,7 @@ void printSet(Container& c, bool content = true)
     if (content)
     {
         std::cout << "[ ";
-        for (typename Container::iterator it = c.begin(); it != c.end();)
+        for (typename Container::const_iterator it = c.begin(); it != c.end();)
         {
             std::cout << *it;
             ++it;

@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:17:41 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 18:44:51 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:48:24 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    NAMESPACE::set<int, TYPE> s;
+    NAMESPACE::set<TYPE> s;
     for (size_t i = 40; i < 110; ++i)
         s.insert(TYPE(i));
 

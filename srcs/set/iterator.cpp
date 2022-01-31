@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 09:07:58 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 19:08:39 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:50:32 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main()
     NAMESPACE::set<TYPE> s;
     for (size_t i = 36; i < 126; ++i)
         s.insert(TYPE(i));
-    ft::printMap(s);
+    ft::printSet(s);
 
     NAMESPACE::set<TYPE>::iterator       it = ++(++(++s.begin()));
     NAMESPACE::set<TYPE>::const_iterator cit = ++(++(++s.begin()));

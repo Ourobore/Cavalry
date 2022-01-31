@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:31:09 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 18:46:41 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:48:40 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    NAMESPACE::set<int, TYPE> s;
+    NAMESPACE::set<TYPE> s;
     for (size_t i = 40; i < 110; ++i)
         s.insert(TYPE(i));
 
@@ -56,10 +56,10 @@ int main()
     // ##################################################################################
 
     std::cout << "From position:" << std::endl;
-    NAMESPACE::set<int, TYPE>::iterator it1 = s.begin();
+    NAMESPACE::set<TYPE>::iterator it1 = s.begin();
     for (size_t i = 0; i < s.size() / 3; ++i)
         ++it1;
-    NAMESPACE::set<int, TYPE>::iterator it2 = s.end();
+    NAMESPACE::set<TYPE>::iterator it2 = s.end();
     for (size_t i = 0; i < s.size() / 3; ++i)
         --it2;
 

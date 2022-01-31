@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:14:37 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 18:54:52 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:49:05 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int main()
 
     std::cout << "Insert existing elem (with bad hint):" << std::endl;
     TYPE p2 = TYPE(45);
-    std::cout << "New elem: " << ft::outputPair(p2) << std::endl;
+    std::cout << "New elem: " << p2 << std::endl;
     std::cout << "Before ->" << std::endl;
     ft::printSet(s);
     result = s.insert(s.end(), p2);

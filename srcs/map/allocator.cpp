@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:53:55 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/29 16:21:04 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:57:52 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,19 @@ int main()
     // If you used Allocator::value_type (for value_type) for genericity, map will not work with another type of allocator
     // Is that OK? Not mine to judge
     // ##################################################################################
-    // std::cout << "Allocate a map with another allocator than the default one:" << std::endl;
+    std::cout << "Allocate a map with another allocator than the default one:" << std::endl;
 
-    // NAMESPACE::map<int, TYPE, std::less<int>, NAMESPACE::map<int, TYPE>::allocator_type > m1;
-    // m1.insert(NAMESPACE::make_pair(42, TYPE(42)));
-    // std::cout << "m1: " << std::endl;
-    // ft::printMap(m);
-    // NAMESPACE::map<int, TYPE, std::less<int>, std::list<TYPE>::allocator_type > m2;
-    // m2.insert(NAMESPACE::make_pair(42, TYPE(42)));
-    // std::cout << "m2: " << std::endl;
-    // ft::printMap(m);
-    // NAMESPACE::map<int, TYPE, std::less<int>, std::deque<Foo>::allocator_type > m3;
-    // m2.insert(NAMESPACE::make_pair(42, TYPE(42)));
-    // std::cout << "m3: " << std::endl;
-    // ft::printMap(m);
-    // std::cout << "  -> It seems to be good. The STL seems to not really care of the type of allocator passed" << std::endl;
+    NAMESPACE::map<int, TYPE, std::less<int>, NAMESPACE::map<int, TYPE>::allocator_type > m1;
+    m1.insert(NAMESPACE::make_pair(42, TYPE(42)));
+    std::cout << "m1: " << std::endl;
+    ft::printMap(m1);
+    NAMESPACE::map<int, TYPE, std::less<int>, std::list<TYPE>::allocator_type > m2;
+    m2.insert(NAMESPACE::make_pair(42, TYPE(42)));
+    std::cout << "m2: " << std::endl;
+    ft::printMap(m2);
+    NAMESPACE::map<int, TYPE, std::less<int>, std::deque<Foo>::allocator_type > m3;
+    m3.insert(NAMESPACE::make_pair(42, TYPE(42)));
+    std::cout << "m3: " << std::endl;
+    ft::printMap(m3);
+    std::cout << "  -> It seems to be good. The STL seems to not really care of the type of allocator passed" << std::endl;
 }

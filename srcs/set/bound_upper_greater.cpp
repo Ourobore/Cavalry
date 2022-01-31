@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:55:44 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 18:14:23 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 21:24:43 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int main()
         else
         {
             std::cout << "  -> Huuum, that's not the right bound!" << std::endl;
-            std::cout << " That's the right bound: " << ft::outputPair(v1) << std::endl;
+            std::cout << " That's the right bound: " << v1 << std::endl;
         }
-        std::cout << "Bound found: " << ft::outputPair(*it) << std::endl;
+        std::cout << "Bound found: " << *it << std::endl;
     }
 
     std::cout << std::endl;

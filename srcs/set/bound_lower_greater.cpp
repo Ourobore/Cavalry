@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:59:19 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 17:47:34 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 21:30:37 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int main()
         else
         {
             std::cout << "  -> Huuum, that's not the right bound!" << std::endl;
-            std::cout << " That's the right bound: " << ft::outputPair(v1) << std::endl;
+            std::cout << " That's the right bound: " << v1 << std::endl;
         }
-        std::cout << "Bound found: " << ft::outputPair(*it) << std::endl;
+        std::cout << "Bound found: " << *it << std::endl;
     }
 
     std::cout << std::endl;
@@ -65,9 +65,9 @@ int main()
         else
         {
             std::cout << "  -> Huuum, that's not the right bound!" << std::endl;
-            std::cout << " That's the right bound: " << ft::outputPair(v1) << std::endl;
+            std::cout << " That's the right bound: " << v1 << std::endl;
         }
-        std::cout << "Bound found: " << ft::outputPair(*cit) << std::endl;
+        std::cout << "Bound found: " << *cit << std::endl;
     }
 
     std::cout << std::endl;
@@ -205,6 +205,7 @@ int main()
 
     std::cout << "Const set (just function call verification: I will not test every cases, I trust you here^^)" << std::endl;
     const NAMESPACE::set<TYPE, std::greater<TYPE> > n(s);
+    ft::printSet(n);
     cit = n.lower_bound(v4);
     if (cit == n.end())
         std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists but the set is not empty and every other keys are not smaller" << std::endl;

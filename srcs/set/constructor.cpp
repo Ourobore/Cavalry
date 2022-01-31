@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 09:10:48 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 18:34:10 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:47:21 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int main()
     {
         std::cout << "--- Range set (range constructor with reverse_iterator) ---" << std::endl;
 
-        NAMESPACE::set<int, TYPE> s1(set.rbegin(), set.rend());
+        NAMESPACE::set<TYPE> s1(set.rbegin(), set.rend());
         ft::printSet(s1);
     }
 }

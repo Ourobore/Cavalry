@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:32:07 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 18:39:32 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:48:13 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    NAMESPACE::set<int, TYPE> s;
+    NAMESPACE::set<TYPE> s;
 
     size_t first_elem = 30;
     size_t size = 10;

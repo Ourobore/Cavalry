@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:23:20 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 18:26:20 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:47:00 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
     // ##################################################################################
     std::cout << "Using clear():" << std::endl;
     std::cout << "Before clear ->" << std::endl;
-    ft::printMap(s);
+    ft::printSet(s);
     s.clear();
     s.clear(); // To see if that is not a problem
     std::cout << "After clear ->" << std::endl;

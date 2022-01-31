@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 15:31:34 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 19:11:23 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:51:41 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int main()
 
     std::cout << "s1 IS less than s2:" << std::endl;
     std::cout << "  -> s1" << std::endl;
-    ft::printMap(s1);
+    ft::printSet(s1);
     std::cout << "  -> s2" << std::endl;
-    ft::printMap(s2);
+    ft::printSet(s2);
 
     std::cout << std::endl;
 
@@ -52,9 +52,9 @@ int main()
 
     std::cout << "s2 IS more than s1:" << std::endl;
     std::cout << "  -> s1" << std::endl;
-    ft::printMap(s1);
+    ft::printSet(s1);
     std::cout << "  -> s2" << std::endl;
-    ft::printMap(s2);
+    ft::printSet(s2);
 
     std::cout << std::endl;
 
@@ -71,9 +71,9 @@ int main()
 
     std::cout << "s3 IS equal to s4:" << std::endl;
     std::cout << "  -> s3" << std::endl;
-    ft::printMap(s3);
+    ft::printSet(s3);
     std::cout << "  -> s4" << std::endl;
-    ft::printMap(s4);
+    ft::printSet(s4);
 
     std::cout << std::endl;
 
@@ -88,13 +88,13 @@ int main()
     ft::printSeparator();
     std::cout << std::endl;
 
-    s3[90] = TYPE(90);
-    s4[100] = TYPE(100);
+    s3.insert(TYPE(90));
+    s4.insert(TYPE(100));
     std::cout << "s3 IS ALMOST equal to s4 (last elem not equal):" << std::endl;
     std::cout << "  -> s3" << std::endl;
-    ft::printMap(s3);
+    ft::printSet(s3);
     std::cout << "  -> s4" << std::endl;
-    ft::printMap(s4);
+    ft::printSet(s4);
 
     std::cout << std::endl;
 

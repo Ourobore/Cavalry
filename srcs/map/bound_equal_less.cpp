@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:21:42 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/30 18:21:31 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 21:32:46 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,7 @@ int main()
 
     std::cout << "Const map (just function call verification: I will not test every cases, I trust you here^^)" << std::endl;
     const NAMESPACE::map<int, TYPE, std::less<int> > n(m);
+    ft::printMap(n);
     r2 = n.equal_range(60);
     if (r2.first == n.end())
         std::cout << "  -> Huuuum... Are you sure about that? The key DOES NOT exists but the map is not empty and every other keys are not smaller" << std::endl;

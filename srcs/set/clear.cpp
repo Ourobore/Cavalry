@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:23:20 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 18:26:41 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:26:20 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 int main()
 {
-    NAMESPACE::map<int, TYPE> m;
+    NAMESPACE::set<TYPE> s;
 
     size_t first_elem = 30;
     size_t size = 10;
     for (size_t i = first_elem; i < first_elem + size; ++i)
-        m.insert(NAMESPACE::make_pair(i - 30, TYPE(i)));
+        s.insert(TYPE(i));
 
     std::cout << "--- Clear ---" << std::endl;
     // ##################################################################################
     std::cout << "Using clear():" << std::endl;
     std::cout << "Before clear ->" << std::endl;
-    ft::printMap(m);
-    m.clear();
-    m.clear(); // To see if that is not a problem
+    ft::printMap(s);
+    s.clear();
+    s.clear(); // To see if that is not a problem
     std::cout << "After clear ->" << std::endl;
-    ft::printMap(m);
+    ft::printSet(s);
 
     std::cout << std::endl;
     ft::printSeparator();
     std::cout << std::endl;
 
     // ##################################################################################
-    std::cout << "Using map<Key, T>().swap(m):" << std::endl;
+    std::cout << "Using set<T>().swap(s):" << std::endl;
     for (size_t i = first_elem; i < first_elem + size; ++i)
-        m.insert(NAMESPACE::make_pair(i - 30, TYPE(i)));
+        s.insert(TYPE(i));
     std::cout << "Before clear ->" << std::endl;
-    ft::printMap(m);
-    NAMESPACE::map<int, TYPE>().swap(m);
-    NAMESPACE::map<int, TYPE>().swap(m); // To see if that is not a problem
+    ft::printSet(s);
+    NAMESPACE::set<TYPE>().swap(s);
+    NAMESPACE::set<TYPE>().swap(s); // To see if that is not a problem
     std::cout << "After clear ->" << std::endl;
-    ft::printMap(m);
+    ft::printSet(s);
 }

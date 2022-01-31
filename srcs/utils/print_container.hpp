@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:30:59 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 22:01:56 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 10:53:53 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,33 @@ void printMap(Container& c, bool content = true)
         std::cout << "[ ";
         for (typename Container::iterator it = c.begin(); it != c.end();)
         {
-            // std::cout << "[" << i << "]: ";
             std::cout << "[" << it->first << "]: " << it->second;
+            ++it;
+            if (it != c.end())
+                std::cout << ", ";
+        }
+        std::cout << " ]" << std::endl;
+    }
+    else
+        std::cout << "(Content printing omitted)" << std::endl;
+
+    ft::printSeparator('=', 1, 45);
+}
+
+template <class Container>
+void printSet(Container& c, bool content = true)
+{
+    ft::printSeparator('=', 1, 45);
+
+    std::cout << "Size: [" << c.size() << "]";
+    std::cout << std::endl;
+
+    if (content)
+    {
+        std::cout << "[ ";
+        for (typename Container::iterator it = c.begin(); it != c.end();)
+        {
+            std::cout << *it;
             ++it;
             if (it != c.end())
                 std::cout << ", ";

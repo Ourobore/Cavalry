@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 15:31:34 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 10:11:27 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 19:11:44 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ int main()
 
     std::cout << std::endl;
 
-    std::cout << "m3 == m1: " << (m3 == m4) << std::endl;
-    std::cout << "m3 != m1: " << (m3 != m4) << std::endl;
-    std::cout << "m3 < m1: " << (m3 < m4) << std::endl;
-    std::cout << "m3 > m1: " << (m3 > m4) << std::endl;
-    std::cout << "m3 <= m1: " << (m3 <= m4) << std::endl;
-    std::cout << "m3 >= m1: " << (m3 >= m4) << std::endl;
+    std::cout << "m3 == m4: " << (m3 == m4) << std::endl;
+    std::cout << "m3 != m4: " << (m3 != m4) << std::endl;
+    std::cout << "m3 < m4: " << (m3 < m4) << std::endl;
+    std::cout << "m3 > m4: " << (m3 > m4) << std::endl;
+    std::cout << "m3 <= m4: " << (m3 <= m4) << std::endl;
+    std::cout << "m3 >= m4: " << (m3 >= m4) << std::endl;
 
     std::cout << std::endl;
     ft::printSeparator();
@@ -98,10 +98,10 @@ int main()
 
     std::cout << std::endl;
 
-    std::cout << "m3 == m1: " << (m3 == m4) << std::endl;
-    std::cout << "m3 != m1: " << (m3 != m4) << std::endl;
-    std::cout << "m3 < m1: " << (m3 < m4) << std::endl;
-    std::cout << "m3 > m1: " << (m3 > m4) << std::endl;
-    std::cout << "m3 <= m1: " << (m3 <= m4) << std::endl;
-    std::cout << "m3 >= m1: " << (m3 >= m4) << std::endl;
+    std::cout << "m3 == m4: " << (m3 == m4) << std::endl;
+    std::cout << "m3 != m4: " << (m3 != m4) << std::endl;
+    std::cout << "m3 < m4: " << (m3 < m4) << std::endl;
+    std::cout << "m3 > m4: " << (m3 > m4) << std::endl;
+    std::cout << "m3 <= m4: " << (m3 <= m4) << std::endl;
+    std::cout << "m3 >= m4: " << (m3 >= m4) << std::endl;
 }

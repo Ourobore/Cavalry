@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:05:09 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 10:44:43 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:53:49 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,12 @@
 
 // Containers includes
 #include "map.hpp"
+#include "set.hpp"
 #include "stack.hpp"
 #include "vector.hpp"
+
 #include <map>
+#include <set>
 #include <stack>
 #include <vector>
 

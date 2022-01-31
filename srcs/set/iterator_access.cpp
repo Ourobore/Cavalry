@@ -6,56 +6,56 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 10:23:13 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 19:15:14 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/01/31 19:14:56 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cavalry.hpp"
 
 template <class Iterator>
-void iterator_access(NAMESPACE::map<int, Foo> m, Iterator it)
+void iterator_access(NAMESPACE::set<Foo> s, Iterator it)
 {
     std::cout << "--- Dereference access ---" << std::endl;
     std::cout << "it->function(): ";
-    (*it).second.helloWorld();
-    std::cout << "it->function(): " << (*it).second.getBar() << std::endl;
-    std::cout << "(it + n)->function(): " << (*(++(++(++(++it))))).second.getBar() << std::endl;
-    std::cout << "(it - n)->function(): " << (*(--(--(--it)))).second.getBar() << std::endl;
+    (*it).helloWorld();
+    std::cout << "it->function(): " << (*it).getBar() << std::endl;
+    std::cout << "(it + n)->function(): " << (*(++(++(++(++it))))).getBar() << std::endl;
+    std::cout << "(it - n)->function(): " << (*(--(--(--it)))).getBar() << std::endl;
 
     std::cout << std::endl;
 
     std::cout << "--- Arrow access ---" << std::endl;
     std::cout << "it->function(): ";
-    it->second.helloWorld();
-    std::cout << "it->function(): " << it->second.getBar() << std::endl;
-    std::cout << "(it + n)->function(): " << ((++(++(++(++it)))))->second.getBar() << std::endl;
-    std::cout << "(it - n)->function(): " << ((--(--(--it))))->second.getBar() << std::endl;
+    it->helloWorld();
+    std::cout << "it->function(): " << it->getBar() << std::endl;
+    std::cout << "(it + n)->function(): " << ((++(++(++(++it)))))->getBar() << std::endl;
+    std::cout << "(it - n)->function(): " << ((--(--(--it))))->getBar() << std::endl;
 
     std::cout << std::endl;
-    (void)m;
+    (void)s;
 }
 
 int main()
 {
-    NAMESPACE::map<int, Foo> mfoo;
+    NAMESPACE::set<Foo> sfoo;
     for (size_t i = 0; i < 50; ++i)
-        mfoo[i] = Foo(i);
-    ft::printMap(mfoo);
+        sfoo.insert(Foo(i));
+    ft::printSet(sfoo);
 
-    NAMESPACE::map<int, Foo>::iterator       it = ++(++(++(++(++(++(++(mfoo.begin())))))));
-    NAMESPACE::map<int, Foo>::const_iterator cit = ++(++(++(++(++(++(++(mfoo.begin())))))));
+    NAMESPACE::set<Foo>::iterator       it = ++(++(++(++(++(++(++(sfoo.begin())))))));
+    NAMESPACE::set<Foo>::const_iterator cit = ++(++(++(++(++(++(++(sfoo.begin())))))));
 
     std::cout << std::endl;
     ft::printSeparator();
     std::cout << std::endl;
 
     std::cout << "=== Non const iterator ===" << std::endl;
-    iterator_access(mfoo, it);
+    iterator_access(sfoo, it);
 
     std::cout << std::endl;
     ft::printSeparator();
     std::cout << std::endl;
 
     std::cout << "=== Const iterator ===" << std::endl;
-    iterator_access(mfoo, cit);
+    iterator_access(sfoo, cit);
 }

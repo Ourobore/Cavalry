@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 18:45:59 by lchapren          #+#    #+#             */
-/*   Updated: 2022/02/01 18:25:25 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/02/01 21:00:04 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,12 @@ int main()
         v = vec;
         ft::printVector(vec, CAPACITY);
         ft::printVector(v, CAPACITY);
+    }
+    // #########################################################
+    {
+        std::cout << "--- Range map (range constructor with reverse_iterator) ---" << std::endl;
+
+        NAMESPACE::vector<TYPE> v1(vec.rbegin(), vec.rend());
+        ft::printVector(v1);
     }
 }

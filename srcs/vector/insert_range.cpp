@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:38:51 by lchapren          #+#    #+#             */
-/*   Updated: 2022/02/01 18:25:35 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/02/01 21:01:59 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,5 +222,10 @@ int main()
 
     it = v.begin() + (v.size() / 2);
     v.insert(it, l.begin(), l.end());
+    ft::printVector(v, CAPACITY);
+
+    NAMESPACE::vector<TYPE> v1(v);
+    it = v.begin() + (v.size() / 2);
+    v.insert(it, v1.rbegin(), v1.rend());
     ft::printVector(v, CAPACITY);
 }

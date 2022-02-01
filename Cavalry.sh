@@ -6,7 +6,7 @@ source scripts/compile.sh
 CONTAINERS=()
 
 DIFF_FORMAT="-u"
-USER_INCLUDES="-I.. -I../utils -I../iterator -I../binary_tree"
+USER_INCLUDES="-I.. -I../srcs"
 
 # TO-DO: help command and error output
 

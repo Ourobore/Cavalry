@@ -1,5 +1,3 @@
--I../utils/
--I../iterator/
 -I../
 -I./
 -I./srcs/

@@ -6,11 +6,11 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:33:37 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/27 11:44:30 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:25:42 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cavalry.hpp"
+#include "test_vector.hpp"
 
 static TYPE value = TYPE(27);
 

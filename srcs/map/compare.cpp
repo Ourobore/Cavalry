@@ -6,11 +6,11 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:38:10 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/29 15:55:11 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:12:42 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cavalry.hpp"
+#include "test_map.hpp"
 
 template <class Compare>
 void test_compare()

@@ -6,11 +6,11 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 09:23:17 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 09:36:53 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:12:46 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cavalry.hpp"
+#include "test_map.hpp"
 
 template <class Map>
 void access_map(Map m)

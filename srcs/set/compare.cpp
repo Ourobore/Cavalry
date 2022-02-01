@@ -6,11 +6,11 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:38:10 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/31 18:29:03 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:29:16 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cavalry.hpp"
+#include "test_set.hpp"
 
 template <class Compare>
 void test_compare()
@@ -26,7 +26,7 @@ void test_compare()
     ft::printSeparator();
     std::cout << std::endl;
 
-    typename NAMESPACE::map<int, TYPE, Compare>::key_compare kcomp = n.key_comp();
+    typename NAMESPACE::set<TYPE, Compare>::key_compare kcomp = n.key_comp();
     (void)kcomp;
 
     std::cout << "key_compare() (key 1 < key 2):" << std::endl;

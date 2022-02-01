@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   erase_position_begin.cpp                           :+:      :+:    :+:   */
+/*   test_vector.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 12:21:59 by lchapren          #+#    #+#             */
-/*   Updated: 2022/02/01 18:21:17 by lchapren         ###   ########.fr       */
+/*   Created: 2022/02/01 18:24:35 by lchapren          #+#    #+#             */
+/*   Updated: 2022/02/01 18:25:01 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../test_set.hpp"
+// Intermediate header to only include tested container when testing
+#include "Cavalry.hpp"
 
-int main()
-{
-    // Erase all set elements, position by position (from begin())
-
-    NAMESPACE::set<int> s;
-    for (int i = 0; i < 100000; ++i)
-        s.insert(i);
-
-    while (s.size() != 0)
-        s.erase(s.begin());
-}
+#include "vector.hpp"
+#include <vector>

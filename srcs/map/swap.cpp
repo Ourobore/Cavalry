@@ -6,15 +6,11 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:08:00 by lchapren          #+#    #+#             */
-/*   Updated: 2022/01/28 09:53:03 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:14:22 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cavalry.hpp"
-
-#ifndef CAPACITY
-#define CAPACITY true
-#endif
+#include "test_map.hpp"
 
 int main()
 {

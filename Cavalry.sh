@@ -50,7 +50,7 @@ main()
     # Removing logs and executables if requested
     if [ $# -eq 1 ] && [ "$1" = "clean" ]; then
         rm -rf *.std *.ft logs/*
-        echo "Cleaned!"
+        echo "Logs cleaned!"
         exit 0
     fi
     

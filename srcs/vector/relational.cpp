@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 15:31:34 by lchapren          #+#    #+#             */
-/*   Updated: 2022/02/01 18:25:51 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/02/01 21:45:32 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int main()
 
     std::cout << "v1 IS less than v2:" << std::endl;
     std::cout << "  -> v1" << std::endl;
-    ft::printVector(v1);
+    ft::printVector(v1, CAPACITY);
     std::cout << "  -> v2" << std::endl;
-    ft::printVector(v2);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
 
@@ -49,9 +49,9 @@ int main()
 
     std::cout << "v2 IS more than v1:" << std::endl;
     std::cout << "  -> v1" << std::endl;
-    ft::printVector(v1);
+    ft::printVector(v1, CAPACITY);
     std::cout << "  -> v2" << std::endl;
-    ft::printVector(v2);
+    ft::printVector(v2, CAPACITY);
 
     std::cout << std::endl;
 
@@ -68,9 +68,9 @@ int main()
 
     std::cout << "v3 IS equal to v4:" << std::endl;
     std::cout << "  -> v3" << std::endl;
-    ft::printVector(v3);
+    ft::printVector(v3, CAPACITY);
     std::cout << "  -> v4" << std::endl;
-    ft::printVector(v4);
+    ft::printVector(v4, CAPACITY);
 
     std::cout << std::endl;
 
@@ -89,9 +89,9 @@ int main()
     v4.back() = TYPE(100);
     std::cout << "v3 IS ALMOST equal to v4 (last elem not equal):" << std::endl;
     std::cout << "  -> v3" << std::endl;
-    ft::printVector(v3);
+    ft::printVector(v3, CAPACITY);
     std::cout << "  -> v4" << std::endl;
-    ft::printVector(v4);
+    ft::printVector(v4, CAPACITY);
 
     std::cout << std::endl;
 

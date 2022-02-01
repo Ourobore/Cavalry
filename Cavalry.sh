@@ -32,17 +32,14 @@ check_containers()
 main()
 {
     print_header
-
+    
     # Setting up tested containers and options
     parse_options $@
-    if [ ${#CONTAINERS[@]} -eq 0 ]; then
-        CONTAINERS=(vector stack map set)
-    fi
 
     # Verifying both --leaks and --time options are not activated at the same time
     if [ $LEAKS -eq 0 ] && [ $TIME -eq 0 ]; then
         echo "Can't activate both --leaks and --time options at the same time. Deactivate one"
-        exit 0
+        exit 1
     fi
 
     # Printing help if requested
@@ -58,11 +55,24 @@ main()
     fi
     
     # Launching tests
-    check_containers ${CONTAINERS[@]}
-    for container in ${CONTAINERS[@]}; do
-        test_container $container
+    if [ $FILE -eq 0 ]; then
+        if [ ${#CONTAINERS[@]} -eq 0 ]; then
+            echo "No file selected. Select some files, or deactivate --file option."
+            exit 1
+        fi
+        test_files $CONTAINERS
         printf "\n"
-    done
+    else
+        if [ ${#CONTAINERS[@]} -eq 0 ]; then
+            CONTAINERS=(vector stack map set)
+        fi
+        check_containers ${CONTAINERS[@]}
+        for container in ${CONTAINERS[@]}; do
+            test_container $container
+            printf "\n"
+        done
+    fi
+    exit 0
 }
 
 main $@

@@ -6,6 +6,7 @@ NO_CLEAN=1
 NO_CAPACITY=1
 LEAKS=1
 TIME=1
+FILE=1
 
 parse_options()
 {
@@ -30,6 +31,10 @@ parse_options()
                 ;;
             --time)
                 TIME=0
+                continue
+                ;;
+            --file)
+                FILE=0
                 continue
                 ;;
             *) CONTAINERS+=("$arg")

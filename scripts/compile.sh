@@ -152,4 +152,31 @@ test_container()
     fi
 }
 
+# Run all tests to the argument files ($1)
+test_files()
+{
+    if [ $LEAKS -eq 0 ]; then
+        print_columns_leaks
+    elif [ $TIME -eq 0 ]; then
+        print_columns_time
+    else
+        print_columns_result
+    fi
+    
+    # Run tests for default and --leaks modes
+    if [ $TIME -eq 1 ]; then
+        for file in ${CONTAINERS[@]}; do
+            local container=$(echo $file | cut -d "/" -f 2)
+            local test_file=$(echo $file | cut -d "/" -f 3)
+            run_test_wrapper $container $test_file "Y" ""
+        done
 
+    # Run tests for --time mode
+    else
+        for file in ${CONTAINERS[@]}; do
+            local container=$(echo $file | cut -d "/" -f 2)
+            local test_file=$(echo $file | cut -d "/" -f 3)
+            run_test_wrapper $container $test_file "Y" ""
+        done
+    fi
+}

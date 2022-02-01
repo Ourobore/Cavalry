@@ -51,7 +51,7 @@ NO_LEAK="\U1F525"
 #   $1 -> status code
 transform_status()
 {
-    if [ $1 -eq 0 ]; then
+    if [ "$1" -eq 0 ]; then
         printf "${LIGHT_GRAY}${BOLD}${BACK_GREEN}OK${RESET}"
     else
         printf "${LIGHT_GRAY}${BOLD}${BACK_RED}KO${RESET}"
@@ -62,7 +62,7 @@ transform_status()
 # Print 'Succes' emoji if $1 == 0, else print 'Fail' emoji
 print_emoji_result()
 {
-    if [ $1 -eq 0 ]; then
+    if [ "$1" -eq 0 ]; then
         printf "${SUCCESS}"
     else
         printf "${FAIL}"
@@ -72,7 +72,7 @@ print_emoji_result()
 # Print 'No Leak' emoji if $1 == 0, else print 'Leak' emoji
 print_emoji_leak()
 {
-    if [ $1 -eq 0 ]; then
+    if [ "$1" -eq 0 ]; then
         printf "${NO_LEAK}"
     else
         printf "${LEAK}"
@@ -97,10 +97,10 @@ call_bc()
 #   $5 -> ft test leaks
 print_test_leaks()
 {
-    local std_compiled=$(print_emoji_result $2)
-    local ft_compiled=$(print_emoji_result $3)
-    local result=$(transform_status $4)
-    local result_leaks=$(print_emoji_leak $5)
+    local std_compiled=$(print_emoji_result "$2")
+    local ft_compiled=$(print_emoji_result "$3")
+    local result=$(transform_status "$4")
+    local result_leaks=$(print_emoji_leak "$5")
 
     printf "%-33s|       (Y)[%s]   [%s](Y)      |   [%s]  [%s] \n" "$1" "$std_compiled" "$ft_compiled" "$result" "$result_leaks"
 }
@@ -114,33 +114,33 @@ print_test_leaks()
 #   $5 -> ft test time
 print_test_time()
 {
-    local std_compiled=$(print_emoji_result $2)
-    local ft_compiled=$(print_emoji_result $3)
-    local result=$(call_bc $ft_time $std_time "/")
+    local std_compiled=$(print_emoji_result "$2")
+    local ft_compiled=$(print_emoji_result "$3")
+    local result=$(call_bc "$ft_time" "$std_time" "/")
     
     # If compilation error, can't compare times
-    if [ $2 -eq 1 ]; then
-        if [ $3 -eq 1 ]; then
+    if [ "$2" -eq 1 ]; then
+        if [ "$3" -eq 1 ]; then
             printf "%-33s|        [${BOLD}${RED}%s${RESET}]  [${BOLD}${RED}%s${RESET}]        |    [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "COMP" "COMP" "ERROR"
         else
             printf "%-33s|        [${BOLD}${RED}%s${RESET}]  [${BOLD}${GREEN}%s${RESET}]        |   [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "COMP" "$ft_time" "ERROR"
         fi
-    elif [ $3 -eq 1 ]; then
+    elif [ "$3" -eq 1 ]; then
             printf "%-33s|        [${BOLD}${GREEN}%s${RESET}]  [${BOLD}${RED}%s${RESET}]        |   [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "$std_time" "COMP" "ERROR"
     else
 
     # If dividing by zero, time ratio is infinity
-    if [ -z $result ]; then
-        local sum_time=$(call_bc $std_time $ft_time "+")
+    if [ -z "$result" ]; then
+        local sum_time=$(call_bc "$std_time" "$ft_time" "+")
         # If ft_time is less than 0.20 seconds, comparing to 0.00 from std_time
-        if [ $(call_bc $sum_time "0.20" "<=") -eq 1 ]; then
+        if [ "$(call_bc "$sum_time" "0.20" "<=")" -eq 1 ]; then
             printf "%-33s|        [${BOLD}${GREEN}%s${RESET}]  [${BOLD}${GREEN}%s${RESET}]        |   [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "$std_time" "$ft_time" "INFINITY"
         else
             printf "%-33s|        [${BOLD}${GREEN}%s${RESET}]  [${BOLD}${RED}%s${RESET}]        |   [${BOLD}${MAGENTA}%s${RESET}]\n" "$1" "$std_time" "$ft_time" "INFINITY"
         fi
 
     # If time ratio is within the x20 time limit
-    elif [ $(call_bc $result "20" "<=") -eq 1 ]; then
+    elif [ "$(call_bc "$result" "20" "<=")" -eq 1 ]; then
         printf "%-33s|        [${BOLD}${GREEN}%s${RESET}]  [${BOLD}${GREEN}%s${RESET}]        |    [${BOLD}${GREEN}%s${RESET}]\n" "$1" "$std_time" "$ft_time" "x$result"
     
     # If time ratio is not within the x20 time limit
@@ -159,9 +159,9 @@ print_test_time()
 #   $5 -> should compile ('Y' or 'N')
 print_test_result()
 {
-    local std_compiled=$(print_emoji_result $2)
-    local ft_compiled=$(print_emoji_result $3)
-    local result=$(transform_status $4)
+    local std_compiled=$(print_emoji_result "$2")
+    local ft_compiled=$(print_emoji_result "$3")
+    local result=$(transform_status "$4")
 
 
     printf "%-33s|       ($5)[%s]   [%s]($5)      |      [%s]\n" "$1" "$std_compiled" "$ft_compiled" "$result"

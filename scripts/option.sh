@@ -10,7 +10,7 @@ FILE=1
 
 parse_options()
 {
-    for arg in $@; do
+    for arg in "$@"; do
         shift
         case $arg in
             --help)

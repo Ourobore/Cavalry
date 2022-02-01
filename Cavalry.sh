@@ -14,10 +14,10 @@ USER_INCLUDES="-I.. -I../utils -I../iterator -I../binary_tree"
 check_containers()
 {
     tested_containers=(vector stack map set)
-    for container in $@; do
+    for container in "$@"; do
         tested=1
-        for tested_container in ${tested_containers[@]}; do
-            if [ $container = $tested_container ]; then
+        for tested_container in "${tested_containers[@]}"; do
+            if [ "$container" = "$tested_container" ]; then
                 tested=0
                 break
             fi
@@ -34,45 +34,45 @@ main()
     print_header
     
     # Setting up tested containers and options
-    parse_options $@
+    parse_options "$@"
 
     # Verifying both --leaks and --time options are not activated at the same time
-    if [ $LEAKS -eq 0 ] && [ $TIME -eq 0 ]; then
+    if [ "$LEAKS" -eq 0 ] && [ "$TIME" -eq 0 ]; then
         echo "Can't activate both --leaks and --time options at the same time. Deactivate one"
         exit 1
     fi
 
     # Printing help if requested
-    if [ $HELP -eq 0 ]; then
+    if [ "$HELP" -eq 0 ]; then
         print_help
     fi
 
     # Removing logs and executables if requested
-    if [ $# -eq 1 ] && [ $1 = "clean" ]; then
+    if [ $# -eq 1 ] && [ "$1" = "clean" ]; then
         rm -rf *.std *.ft logs/*
         echo "Cleaned!"
         exit 0
     fi
     
     # Launching tests
-    if [ $FILE -eq 0 ]; then
+    if [ "$FILE" -eq 0 ]; then
         if [ ${#CONTAINERS[@]} -eq 0 ]; then
             echo "No file selected. Select some files, or deactivate --file option."
             exit 1
         fi
-        test_files $CONTAINERS
+        test_files
         printf "\n"
     else
-        if [ ${#CONTAINERS[@]} -eq 0 ]; then
+        if [ "${#CONTAINERS[@]}" -eq 0 ]; then
             CONTAINERS=(vector stack map set)
         fi
-        check_containers ${CONTAINERS[@]}
-        for container in ${CONTAINERS[@]}; do
-            test_container $container
+        check_containers "${CONTAINERS[@]}"
+        for container in "${CONTAINERS[@]}"; do
+            test_container "$container"
             printf "\n"
         done
     fi
     exit 0
 }
 
-main $@
+main "$@"

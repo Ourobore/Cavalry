@@ -75,6 +75,7 @@ container (i.e './Cavalry.sh --file srcs/vector/allocator.cpp srcs/map/clear.cpp
 Notes:
     --leaks mode and --time mode cannot be used at the same time.
     --file mode can also be used with --leaks or --time.
+    See README for detailed informations
 EOF
 )
 

@@ -6,7 +6,7 @@
 /*   By: lchapren <lchapren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:05:09 by lchapren          #+#    #+#             */
-/*   Updated: 2022/02/01 18:29:42 by lchapren         ###   ########.fr       */
+/*   Updated: 2022/02/02 14:55:00 by lchapren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@
 
 // Tester includes
 // #include "is_const.hpp"
-#include "print_container.hpp"
-#include "print_separator.hpp"
-#include "print_traits.hpp"
-#include "to_string.hpp"
+#include "utils/print_container.hpp"
+#include "utils/print_separator.hpp"
+#include "utils/print_traits.hpp"
+#include "utils/to_string.hpp"
 
 // Containers
 #include <deque>

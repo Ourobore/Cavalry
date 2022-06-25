@@ -105,6 +105,6 @@ You can also modify paths and options for some commands (valgrind, diff, compile
 
 ## Notes
 
-If you found something wrong or want to trace back something, please leave a GitHub _Issue_.
+If you are currently doing the **ft_containers** project from **42School**, please only use this tool when you **already did you own tests**, as a way to test for things you may not have thinked about, or as a handy tool to test response time or memory leaks. And of course, if you found something wrong or want to trace back something, please leave a GitHub _Issue_.
 
-And, if you liked this tool and found it useful, please leave a star and share it so more people can find it. Thanks!
+And, if you liked this tool and found it useful, please leave a **star** :star: and share it so more people can find it. Thanks!

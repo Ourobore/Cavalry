@@ -2,7 +2,7 @@
 
 A **ft_containers** unit testing tool.
 
-This tool was made to test **C++ [STL containers](https://cplusplus.com/reference/stl/)** (`vector`, `stack`, `map`, `set`) implementations. It compares STL output to the implementation one with the `diff` command (so it may compare undefined behaviour). It can also check for **execution speed** and **memory leaks**.
+This tool was made to test **C++ [STL containers](https://cplusplus.com/reference/stl/)** (`vector`, `stack`, `map`, `set`) implementations. It compares STL output to the implementation one with the `diff` command (so it may sometimes compare undefined behaviour). It can also check for **execution speed** and **memory leaks**.
 
 The tests results are not to be taken to the letter, but more to see the differences in behaviour between the implementation and the STL. The tests were coded with readability in mind, to easily see where the implementation differs.
 

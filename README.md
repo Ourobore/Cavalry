@@ -37,7 +37,7 @@ $ ./Cavalry.sh stack map
 
 ## Test ouputs
 
-The test outputs and `diff` results are accessible in the `logs/[container]` directory. No logs are kept if the test is a success, except if the `--no-clean` option is used (`diff` results are never kept if there is no differences, even with this option).
+The tests outputs and `diff` results are accessible in the `logs/[container]` directory. No logs are kept if the test is a success, except if the `--no-clean` option is used (`diff` results are never kept if there is no differences, even with this option).
 
 <br/>
 
